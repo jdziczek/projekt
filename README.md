@@ -1,9 +1,9 @@
 ## Table of Contents
-- [Authours](#authors)
+- [Authours](#authours)
 - [Title](#title)
 - [About project](#about-project)
 - [Building](#building)
-- [Running locally](#runnig-locally)
+- [Running locally](#running-locally)
 
 ## Authours
 D. Cywińska-Litka, J. Dziczek, B. Jarzembiński
