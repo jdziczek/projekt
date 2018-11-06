@@ -12,7 +12,6 @@
 <body>
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-animate-left w3-card" id="sidebar">
   <a class="w3-bar-item w3-button w3-blue" href="/components/dyspozytor_main">Strona główna</a>
-  <a class="w3-bar-item w3-button " href="#">Ustawienia konta</a>
   <a class="w3-bar-item w3-button " href="/index">Wyloguj</a>
   <a class="w3-bar-item w3-button w3-large w3-hide-large center_button" href="javascript:void(0)" onclick="hideSideBar()"><i class="fa fa-remove" id="remove_icon"></i></a>
 </nav>
@@ -26,118 +25,106 @@
 <h2>Zarządzanie zleceniami</h2>
 <h3>Kalendarz zleceń</h3>
 <h4>Zlecone 7.11.2018</h4>
-  <table class="w3-table-all w3-hoverable">
-    <thead>
-      <tr class="w3-light-grey">
-        <th>Numer kierowcy</th>
-        <th>Numer zlecenia</th>
-		<th>Status</th>
-		<th>Szczegóły</th>
-		<th>Modyifukuj</th>
-        <th>Usuń</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>-</td>
-      <td>2018/255</td>
-	  <td><i class="fa fa-truck w3-text-red"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
+<table class="w3-table-all w3-hoverable">
+  <thead>
+    <tr class="w3-light-grey">
+      <th>Numer kierowcy</th>
+      <th>Numer zlecenia</th>
+  <th>Status</th>
+  <th>Szczegóły</th>
+      <th>Usuń</th>
     </tr>
-    <tr>
-      <td>K07</td>
-      <td>2018/254</td>
-	  <td><i class="fa fa-truck w3-text-red"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
+  </thead>
+  <tr>
+    <td>-</td>
+    <td>2018/255</td>
+  <td><i class="fa fa-truck w3-text-red"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+  <tr>
+    <td>K07</td>
+    <td>2018/254</td>
+  <td><i class="fa fa-truck w3-text-red"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+  <tr>
+    <td>K04</td>
+    <td>2018/253</td>
+  <td><i class="fa fa-truck w3-text-orange"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+</table>
+<br>
+<h4>Zlecone 6.11.2018</h4>
+<table class="w3-table-all w3-hoverable">
+  <thead>
+    <tr class="w3-light-grey">
+      <th>Numer kierowcy</th>
+      <th>Numer zlecenia</th>
+  <th>Status</th>
+  <th>Szczegóły</th>
+      <th>Usuń</th>
     </tr>
-    <tr>
-      <td>K04</td>
-      <td>2018/253</td>
-	  <td><i class="fa fa-truck w3-text-orange"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
-    </tr>
-  </table>
- <br>
- <h4>Zlecone 6.11.2018</h4>
-  <table class="w3-table-all w3-hoverable">
-    <thead>
-      <tr class="w3-light-grey">
-        <th>Numer kierowcy</th>
-        <th>Numer zlecenia</th>
-		<th>Status</th>
-		<th>Szczegóły</th>
-		<th>Modyifukuj</th>
-        <th>Usuń</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>K06</td>
-      <td>2018/252</td>
-	  <td><i class="fa fa-truck w3-text-red"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
-    </tr>
-    <tr>
-      <td>K03</td>
-      <td>2018/251</td>
-	  <td><i class="fa fa-truck w3-text-orange"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
-    </tr>
-    <tr>
-      <td>K05</td>
-      <td>2018/250</td>
-	  <td><i class="fa fa-truck w3-text-orange"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
-    </tr>
-  </table>
- <br>
+  </thead>
+  <tr>
+    <td>K06</td>
+    <td>2018/252</td>
+  <td><i class="fa fa-truck w3-text-red"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+  <tr>
+    <td>K03</td>
+    <td>2018/251</td>
+  <td><i class="fa fa-truck w3-text-orange"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+  <tr>
+    <td>K05</td>
+    <td>2018/250</td>
+  <td><i class="fa fa-truck w3-text-orange"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+</table>
+<br>
 <h4>Zlecone 5.11.2018</h4>
-  <table class="w3-table-all w3-hoverable">
-    <thead>
-      <tr class="w3-light-grey">
-        <th>Numer kierowcy</th>
-        <th>Numer zlecenia</th>
-		<th>Status</th>
-		<th>Szczegóły</th>
-		<th>Modyifukuj</th>
-        <th>Usuń</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>K02</td>
-      <td>2018/249</td>
-	  <td><i class="fa fa-truck w3-text-orange"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
+<table class="w3-table-all w3-hoverable">
+  <thead>
+    <tr class="w3-light-grey">
+      <th>Numer kierowcy</th>
+      <th>Numer zlecenia</th>
+  <th>Status</th>
+  <th>Szczegóły</th>
+      <th>Usuń</th>
     </tr>
-    <tr>
-      <td>K01</td>
-      <td>2018/248</td>
-	  <td><i class="fa fa-truck w3-text-green"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
-    </tr>
-    <tr>
-      <td>K08</td>
-      <td>2018/247</td>
-	  <td><i class="fa fa-truck w3-text-green"></i></td>
-	  <td><i class="fa fa-search"></i></td>
-	  <td><i class="fa fa-file-o "></i></td>
-      <td><i class="fa fa-close"></i></td>
-    </tr>
-  </table>
+  </thead>
+  <tr>
+    <td>K02</td>
+    <td>2018/249</td>
+  <td><i class="fa fa-truck w3-text-orange"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+  <tr>
+    <td>K01</td>
+    <td>2018/248</td>
+  <td><i class="fa fa-truck w3-text-green"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+  <tr>
+    <td>K08</td>
+    <td>2018/247</td>
+  <td><i class="fa fa-truck w3-text-green"></i></td>
+  <td><a href="/components/zlecenie_szczegoly"><i class="fa fa-search"></i></a></td>
+    <td><i class="fa fa-close"></i></td>
+  </tr>
+</table>
 <p>
 <a href="/components/dyspozytor_zlecenie" class="w3-button w3-blue">Dodaje zlecenie</a>
 <a href="/components/dyspozytor_statusy" class="w3-button w3-blue">Legenda statusów</a>
