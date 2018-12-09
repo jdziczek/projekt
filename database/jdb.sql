@@ -2,7 +2,7 @@ CREATE DATABASE jdb;
 USE jdb;
 
 CREATE TABLE orders(
-        id_order SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        id_order SMALLINT NOT NULL AUTO_INCREMENT,
         order_date DATE NOT NULL,
         order_time TIME NOT NULL,
         car_type VARCHAR(20) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE orders(
 );
 
 CREATE TABLE address(
-	id_address SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	id_address SMALLINT NOT NULL AUTO_INCREMENT,
 	street VARCHAR(80),
 	b_number SMALLINT NOT NULL,
 	a_number SMALLINT,
@@ -33,7 +33,7 @@ CREATE TABLE address(
 
 
 CREATE TABLE cargo(
-	id_cargo SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	id_cargo SMALLINT NOT NULL AUTO_INCREMENT,
 	cargo_dsc VARCHAR(200) NOT NULL,
 	cargo_weight FLOAT NOT NULL,
 	cargo_length FLOAT NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE crew(
 );
 
 CREATE TABLE employees(
-	id_employee SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	id_employee SMALLINT NOT NULL AUTO_INCREMENT,
 	e_name VARCHAR(20) NOT NULL, 
 	e_surname VARCHAR(40) NOT NULL,
 	position VARCHAR(10) NOT NULL,
