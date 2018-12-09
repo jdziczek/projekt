@@ -1,3 +1,24 @@
+<!--żeby php działał poprawnie należy zmienić konfigurację na serwerze (w xampp - dodanie linijki
+AddHandler application/x-httpd-php .html
+do pliku konfiguracyjnego .htaccess-- KOMENTARZ PÓŹNIEJ DO USUNIĘCIA-->
+
+<?php
+	
+	session_start();
+	
+	if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany_D']==true))
+	{
+		header('Location: dyspozytor_main.html');
+		exit(); //wyjscie z pliku
+	}
+	else if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany_K']==true))
+	{
+		header('Location: kierowca_main.html');
+		exit(); //wyjscie z pliku
+	}
+		
+?>
+
 <!DOCTYPE html>
 <html>
   <title>JBD Logistics</title>
@@ -16,32 +37,17 @@
       <div class="w3-container">
       <!-- content -->
         <h2>Logowanie</h2>
-        <div class="content">
-            <div class="form">
-              <div>
-                <label>Nazwa użytkownika:</label>
-                <input type="text"/>
-              </div>
-              <div>
-                <label>Hasło:</label>
-                <input type="text"/>
-              </div>
-              <div>
-                <label>Funkcja:</label>
-                <label class="radio-inline">
-                  <input type="radio"> Dyspozytor<br>
-                </label>
-                <label class="radio-inline">
-                  <input type="radio"> Kierowca<br>
-                </label>
-              </div>
-              <div>
-                <button>Zaloguj</button>
-              </div>
-            </div>
-        </div>
+        <form action="zaloguj.php" method="post">
+          Login: <br /><input type="text" name="login" /></br>
+          Hasło: <br /><input type="password" name="haslo" /></br></br>
+          <input type="submit" value="Zaloguj się" />
+        </form>	
       <!-- content -->
       </div>
+      <?php
+      if(isset($_SESSION['blad'])) echo $_SESSION['blad'];
+      unset($_SESSION['blad']);
+      ?>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
     </div>
     <script src="/js/main.js"></script>
