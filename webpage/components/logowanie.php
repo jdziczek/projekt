@@ -8,12 +8,12 @@ do pliku konfiguracyjnego .htaccess-- KOMENTARZ PÓŹNIEJ DO USUNIĘCIA-->
 	
 	if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany_D']==true))
 	{
-		header('Location: dyspozytor_main.html');
+		header('Location: dyspozytor_main.php');
 		exit(); //wyjscie z pliku
 	}
 	else if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany_K']==true))
 	{
-		header('Location: kierowca_main.html');
+		header('Location: kierowca_main.php');
 		exit(); //wyjscie z pliku
 	}
 		
