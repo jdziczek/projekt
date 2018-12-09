@@ -2,7 +2,7 @@
 	session_start();
 	if((!isset($_POST['login']))||(!isset($_POST['haslo'])))
 	{
-		header('Location: logowanie.html');
+		header('Location: logowanie.php');
 		exit();
 	}
 	
@@ -65,7 +65,7 @@
 					else
 					{
 						$_SESSION['blad']='<span style="color:red">Problem połączenia z bazą. Proszę spróbować później.</span>';
-						header('Location: logowanie.html');
+						header('Location: logowanie.php');
 					}
 				}
 				
@@ -74,17 +74,17 @@
 				//echo $user;
 				if($_SESSION['zalogowany_D'])
 				{
-					header('Location: dyspozytor_main.html'); //przekierowanie
+					header('Location: dyspozytor_main.php'); //przekierowanie
 				}
 				else if($_SESSION['zalogowany_K'])
 				{
-					header('Location: kierowca_main.html'); //przekierowanie
+					header('Location: kierowca_main.php'); //przekierowanie
 				}
 			}
 			else
 			{
 				$_SESSION['blad']='<span style="color:red">Nieprawidlowy login lub haslo!</span>';
-				header('Location: logowanie.html');
+				header('Location: logowanie.php');
 			}
 			
 		}

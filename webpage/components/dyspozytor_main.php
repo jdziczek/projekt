@@ -1,3 +1,19 @@
+<?php
+	
+	session_start();
+	
+	if($_SESSION['zalogowany_K'])
+	{
+		header('Location: kierowca_main.php');
+		exit();
+	}
+	else if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: logowanie.php');
+		exit();
+	}
+?>
+
 <!DOCTYPE html>
 <html>
   <title>JBD Logistics</title>
