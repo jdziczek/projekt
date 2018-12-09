@@ -19,12 +19,24 @@ body {
 	padding: 32px;
 }
 
+.w3-button:hover {
+  color: #fff!important;
+  background-color: rgb(17, 126, 216)!important;
+}
 .center_button {
 	text-align: center!important;
 }
 
 .center_button:hover  {
 	background-color: #fff!important;
+}
+
+.fa-close  {
+  cursor: pointer
+}
+
+.fa-search  {
+  cursor: pointer
 }
 
 #remove_icon:hover  {
@@ -42,35 +54,35 @@ body {
 }
 
 button {
-    text-transform: none;
-    -webkit-appearance: none;
-    cursor: pointer;
-    padding: 12px 18px;
-    border-radius: 2px;
-    background: #FCFCFC;
-    font-size: 16px;
-    border: solid 1px #ddd;
-    color: #444;
+  text-transform: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 2px;
+  background: #FCFCFC;
+  font-size: 16px;
+  border: solid 1px #ddd;
+  color: #444;
 }
 
 button:hover {
-    background: #F4F4F4;
-    border: solid 1px #ccc;
+  background: #F4F4F4;
+  border: solid 1px #ccc;
 }
 
 button:active {
-    background: #FEFEFE;
-    border: solid 1px #ddd;
+  background: #FEFEFE;
+  border: solid 1px #ddd;
 }
 
 button:focus {
-    outline:0;
+  outline:0;
 }
 
 .centered_image  {
-	display: block;
-    margin-left: auto;
-    margin-right: auto
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 #footer  {
@@ -78,42 +90,42 @@ button:focus {
 }
 
 input[type=text] {
-    -webkit-appearance: none;
-    width: 150px;
-    height: 24px;
-    padding: 3px 8px;
-    font-size: 14px;
-    line-height: 1.4;
-    color: #555;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-	margin: 3px;
+  -webkit-appearance: none;
+  width: 150px;
+  height: 24px;
+  padding: 3px 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 3px;
 }
 
 label {
-    display: inline-block;
-    width: 140px;
-    text-align: right;
-    margin-right: 4px;
-	padding: 5px 0px 5px 0px;
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+  margin-right: 4px;
+  padding: 5px 0px 5px 0px;
 }
 
 .content {
-    padding: 20px;
+  padding: 20px;
 }
 
 .form  {
-    margin: 6px 0;
+  margin: 6px 0;
 }
 
 .radio_inline {
-	position: relative;
-    display: inline-block;
-    padding-left: 20px;
-    margin-bottom: 0;
-    font-weight: 400;
-    vertical-align: middle;
-    cursor: pointer
+  position: relative;
+  display: inline-block;
+  padding-left: 20px;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  cursor: pointer
 }
