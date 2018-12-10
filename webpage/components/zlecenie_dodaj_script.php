@@ -24,11 +24,17 @@
   $result = mysqli_query($conn, $sql);
   $id_cargo = $conn->insert_id;
 
+  //znalezienie id dispatchera
+  //$sql = "SELECT id_user FROM users
+  //WHERE login=$_POST['login'];";
+  //$id_dispatcher = mysqli_query($conn, $sql);
+  $id_dispatcher="1";
+
   //insert zamowienia
   $mysqldate = date("Y-m-d");
   $mysqltime = date("H:i:s");
-  $sql = "INSERT INTO orders (order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew)
-  VALUES ('$mysqldate', '$mysqltime', '".$_POST['car_type']."', '".$_POST['people']."', $f_adress_id, $s_adress_id, '".$_POST['phone']."', '".$_POST['distance']."', '".$_POST['valuation']."', $id_cargo, '".$_POST['id_crew']."')";
+  $sql = "INSERT INTO orders (order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver)
+  VALUES ('$mysqldate', '$mysqltime', '".$_POST['car_type']."', '".$_POST['people']."', $f_adress_id, $s_adress_id, '".$_POST['phone']."', '".$_POST['distance']."', '".$_POST['valuation']."', $id_cargo, '".$_POST['id_crew']."', 'przyjete', $id_dispatcher, '".$_POST['comment_dispatcher']."', '".$_POST['comment_driver']."')";
 
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
