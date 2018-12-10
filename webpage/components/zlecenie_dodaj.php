@@ -107,6 +107,24 @@
             <input type="text" name="valuation" id="valuation" />
           </div>
           <div>
+            <label>Przydzielona ekipa:</label>
+            <select name="id_crew" id="id_crew" >
+
+            <?php
+            require_once "connect.php";
+            $conn = mysqli_connect($host, $db_user, $db_password, $db_name);
+            $sql = "SELECT id_crew FROM crew";
+            $result = mysqli_query($conn, $sql);
+
+            while($row = mysqli_fetch_array($result)){
+              echo '<option value="1">1</option>';
+              //echo '<option value="' $row['id_crew'] '">' $row['id_crew'] '</option>';
+            }
+            mysqli_close($conn);
+            ?>
+            </select>
+          </div>
+          <div>
             <input class="w3-button w3-blue" type="submit" value="Dodaj" />
           </div>
         </form>

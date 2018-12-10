@@ -46,16 +46,51 @@
             <td><i class="fa fa-truck w3-text-red"></i></td>
             <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
           </tr>
-          <tr>
-            <td>2018/254</td>
-            <td><i class="fa fa-truck w3-text-red"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            </tr>
-          <tr>
-            <td>2018/253</td>
-            <td><i class="fa fa-truck w3-text-orange"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-          </tr>
+<?php
+	require_once "connect.php";
+	
+	$polaczenie = @new mysqli($host,$db_user,$db_password,$db_name);
+	
+	if($polaczenie->connect_errno!=0)
+	{
+		echo "Error:".$polaczenie->connect_errno;
+	}
+	else
+	{
+		if ($rezultat = @$polaczenie->query(
+		sprintf("SELECT id_order status FROM orders WHERE id_crew = '%s'",
+		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
+		{
+			$ile_zlecen=$rezultat->num_rows;
+			
+			while($row=mysqli_fetch_array($rezultat))
+			{
+				echo"<tr>";
+					echo"<td>";
+					echo $row['id_order'];
+					echo"</td>";
+					echo"<td>";
+					if($row['status']=="zaakceptowanie")
+					{
+						echo'<i class="fa fa-truck w3-text-orange"></i>';
+					}
+					else if($row['status']=="zrealizowane")
+					{
+						echo'<i class="fa fa-truck w3-text-green"></i>';
+					}
+					else if($row['status']=="anulowane")
+					{
+						echo'<i class="fa fa-truck w3-text-red"></i>';
+					}
+					echo"</td>";
+					echo'<td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal">';
+					//$_SESSION['id_zlecenia']=$row['id_order'];
+					echo"</i></td>";
+				echo"</tr>";
+			}
+		}
+	}
+?>
         </table>
       <!-- content -->
       </div>
