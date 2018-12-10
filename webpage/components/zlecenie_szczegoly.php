@@ -9,31 +9,31 @@
         <h4 class="modal-title" id="zlecenieModalLabel">Szczegóły Zlecenia</h4>
       </div>
       <div class="modal-body">
-        <div class="form">
-          <div>
-            <label>Wielkość auta:</label>
-            <input type="text" disabled>
+        <form action="zlecenie_szczegoly_script.php" method="post">
+        <div>
+            <label>Typ auta:</label>
+            <input type="text" name="car_type" id="car_type" disabled/>
           </div>
           <div>
-            <label>Typ ładunku:</label>
-            <input type="text" disabled>
+            <label>Ludzie:</label>
+            <input type="text" name="people" id="people" />
           </div>
           <div>
-            <label>Liczba ludzi do załadunku i rozładunku:</label>
-            <input type="text" disabled>
+            <label>Typ auta:</label>
+            <input type="text" name="car_type" id="car_type" disabled/>
           </div>
           <div>
-            <label>Adres początkowy:</label>
-            <input type="text" disabled>
+            <label>Typ auta:</label>
+            <input type="text" name="car_type" id="car_type" disabled/>
           </div>
           <div>
-            <label>Adres docelowy:</label>
-            <input type="text" disabled>
+            <label>Typ auta:</label>
+            <input type="text" name="car_type" id="car_type" disabled/>
           </div>
           <div>
-            <button>Modyfikuj</button>
+          <input class="w3-button w3-blue" type="submit" value="Modyfikuj" />
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
