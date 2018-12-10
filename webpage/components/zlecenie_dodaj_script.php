@@ -25,10 +25,10 @@
   $id_cargo = $conn->insert_id;
 
   //insert zamowienia
-  $mysqldate = date("H:i:s");
-  $mysqltime = date("Y-m-d");
-  $sql = "INSERT INTO orders (car_type, people, f_address, s_address, distance, valuation, id_cargo)
-  VALUES ('".$_POST['car_type']."', '".$_POST['people']."', $f_adress_id, $s_adress_id, '".$_POST['distance']."', '".$_POST['valuation']."', $id_cargo)";
+  $mysqldate = date("Y-m-d");
+  $mysqltime = date("H:i:s");
+  $sql = "INSERT INTO orders (order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo)
+  VALUES ('$mysqldate', '$mysqltime', '".$_POST['car_type']."', '".$_POST['people']."', $f_adress_id, $s_adress_id, '".$_POST['phone']."', '".$_POST['distance']."', '".$_POST['valuation']."', $id_cargo)";
 
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
