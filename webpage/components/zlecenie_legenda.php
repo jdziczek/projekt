@@ -18,15 +18,15 @@
           </thead>
           <tr>
             <td><i class="fa fa-truck w3-text-red"></i></td>
-            <td>opis 1</td>
+            <td>anulowane</td>
           </tr>
           <tr>
             <td><i class="fa fa-truck w3-text-orange"></i></td>
-            <td>opis 2</td>
+            <td>przyjęte</td>
           </tr>
           <tr>
             <td><i class="fa fa-truck w3-text-green"></i></td>
-            <td>opis 3</td>
+            <td>zrealizowane</td>
           </tr>
         </table>
       </div>

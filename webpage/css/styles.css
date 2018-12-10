@@ -152,3 +152,19 @@ label {
   vertical-align: middle;
   cursor: pointer
 }
+
+#nowe_zlecenie {
+  width:750px;
+}
+
+#wrapper1 {
+  display: inline-block;
+  width:350px;
+  vertical-align: top;
+}
+
+#wrapper2 {
+  display: inline-block;
+  width:350px;
+  vertical-align: top;
+}
