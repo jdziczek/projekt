@@ -27,8 +27,8 @@
   //insert zamowienia
   $mysqldate = date("Y-m-d");
   $mysqltime = date("H:i:s");
-  $sql = "INSERT INTO orders (order_date, order_time, car_type, people, f_address, s_address, distance, valuation, id_cargo)
-  VALUES ('$mysqldate', '$mysqltime', '".$_POST['car_type']."', '".$_POST['people']."', $f_adress_id, $s_adress_id, '".$_POST['distance']."', '".$_POST['valuation']."', $id_cargo)";
+  $sql = "INSERT INTO orders (order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo)
+  VALUES ('$mysqldate', '$mysqltime', '".$_POST['car_type']."', '".$_POST['people']."', $f_adress_id, $s_adress_id, '".$_POST['phone']."', '".$_POST['distance']."', '".$_POST['valuation']."', $id_cargo)";
 
   if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";

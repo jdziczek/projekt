@@ -49,18 +49,18 @@
 					$wiersz2=$typ_log->fetch_assoc();
 					$_SESSION['typ_konta']=$wiersz2['position'];
 					//echo $_SESSION['typ_konta'];
-					if($_SESSION['typ_konta']=="dispatcher")
+					if($_SESSION['typ_konta']=="dyspozytor")
 					{
 						$_SESSION['zalogowany_D']=true;						//zalogowany dyspozytor
 						$_SESSION['zalogowany_K']=false;
 						
-						//echo "DISPATCHER";
+						//echo "dyspozytor";
 					}
-					else if($_SESSION['typ_konta']=="driver")
+					else if($_SESSION['typ_konta']=="kierowca")
 					{
 						$_SESSION['zalogowany_D']=false;
 						$_SESSION['zalogowany_K']=true; //zalogowany kierowca
-						//echo "DRIVER";
+						//echo "kierowca";
 						
 					}
 					else

@@ -95,6 +95,10 @@
           </div>
           <p> Inne dane</p>
           <div>
+            <label>Telefon:</label>
+            <input type="text" name="phone" id="phone" required pattern="[0-9]{6-15}" />
+          </div>
+          <div>
             <label>Dystans:</label>
             <input type="text" name="distance" id="distance" />
           </div>
