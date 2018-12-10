@@ -28,7 +28,7 @@
 		//$sql= "SELECT * FROM uzytkownicy WHERE user='$login' AND pass='$haslo'";
 		
 		if ($rezultat = @$polaczenie->query(
-		sprintf("SELECT * FROM users WHERE login='%s' AND password='%s'", //sprawdzić poprawność zapytania sql
+		sprintf("SELECT * FROM users WHERE BINARY login='%s' AND BINARY password='%s'", //sprawdzić poprawność zapytania sql
 		mysqli_real_escape_string($polaczenie,$login),
 		mysqli_real_escape_string($polaczenie,$haslo))))
 		{
@@ -39,8 +39,9 @@
 				
 				$wiersz=$rezultat->fetch_assoc(); //tablica asocjacyjna
 				$id=$wiersz['id_user'];
+				$_SESSION['id_uzytkownika']=$id;
 				
-				echo $id;
+				//echo $id;
 			
 				if($typ_log = @$polaczenie->query(
 				sprintf("SELECT * FROM employees WHERE id_employee='%s'",

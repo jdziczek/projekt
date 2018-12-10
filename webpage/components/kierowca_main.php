@@ -41,11 +41,11 @@
               <th>Szczegóły</th>
             </tr>
           </thead>
-          <tr>
+         <!-- <tr>
             <td>2018/255</td>
             <td><i class="fa fa-truck w3-text-red"></i></td>
             <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-          </tr>
+          </tr>-->
 <?php
 	require_once "connect.php";
 	
@@ -58,10 +58,13 @@
 	else
 	{
 		if ($rezultat = @$polaczenie->query(
-		sprintf("SELECT id_order status FROM orders WHERE id_crew = '%s'",
+		sprintf("SELECT id_order, status FROM orders WHERE id_crew = '%s'",
 		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
 		{
+			//echo $_SESSION['id_uzytkownika'];
 			$ile_zlecen=$rezultat->num_rows;
+			
+			//echo $ile_zlecen;
 			
 			while($row=mysqli_fetch_array($rezultat))
 			{
@@ -70,7 +73,7 @@
 					echo $row['id_order'];
 					echo"</td>";
 					echo"<td>";
-					if($row['status']=="zaakceptowanie")
+					if($row['status']=="przyjete")
 					{
 						echo'<i class="fa fa-truck w3-text-orange"></i>';
 					}
@@ -96,7 +99,7 @@
       </div>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
     </div>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly.php'; ?>
+    <?php //require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly_script.php'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/js/main.js"></script>
