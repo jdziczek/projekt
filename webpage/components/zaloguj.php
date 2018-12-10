@@ -16,6 +16,7 @@
 	}
 	else
 	{
+    $_SESSION['login'] = $_POST['login'];
 		$login=$_POST['login'];
 		$haslo=$_POST['haslo'];
 		
