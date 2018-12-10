@@ -9,10 +9,10 @@
         <h4 class="modal-title" id="noweZlecenieModalLabel">Dodawanie zlecenia</h4>
       </div>
       <div class="modal-body">
-        <div class="form">
+        <form action="zlecenie_dodaj_script.php" method="post">
           <div>
-            <label>Wielkość auta:</label>
-            <input type="text"/>
+            <label>Typ auta:</label>
+            <input type="text" name="car_type" id="car_type" />
           </div>
           <div>
             <label>Typ ładunku:</label>
@@ -31,14 +31,10 @@
             <input type="text"/>
           </div>
           <div>
-            <button>Dodaj</button>
+            <input class="w3-button w3-blue" type="submit" value="Dodaj" />
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
