@@ -8,7 +8,7 @@ CREATE TABLE orders(
         car_type VARCHAR(20) NOT NULL,
         people TINYINT NOT NULL,
         f_address SMALLINT NOT NULL,
-        s_address SMALLINT NOT NULL,
+        s_address SMALLINT NOT NULL, phone SMALLINT NOT NULL,
         distance SMALLINT NOT NULL,
         valuation SMALLINT,
         id_cargo SMALLINT NOT NULL,
