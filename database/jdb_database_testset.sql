@@ -1,4 +1,4 @@
-CREATE DATABASE jdb;
+ï»¿CREATE DATABASE jdb;
 USE jdb;
 
 CREATE TABLE orders(
@@ -101,21 +101,21 @@ ADD FOREIGN KEY (id_employee) REFERENCES users(id_user);
 
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (1, 'Kwiatowa', 14, 25, '81-005', 'Gdynia', 2);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (2, 'Chryzantemowa', 26, 13, '81-002', 'Gdynia', 3);
-INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (3, 'Fio³kowa', 132, 4, '80-326', 'Gdañsk', 0);
-INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (4, 'Tulipanowa', 45, 47, '80-364', 'Gdañsk', 1);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (3, 'Fiolkowa', 132, 4, '80-326', 'GdaÅ„sk', 0);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (4, 'Tulipanowa', 45, 47, '80-364', 'GdaÅ„sk', 1);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (5, 'Bratkowa', 178, 8, '01-001', 'Warszawa', 1);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (6, 'Stokrotkowa', 1, 12, '01-006', 'Warszawa', 4);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (7, 'Hiacyntowa', 44, 4, '01-478', 'Warszawa', 2);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (8, 'Koperkowa', 6, 8, '01-452', 'Warszawa', 3);
 
-INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('bus', 1,5, 3,5, 1,8, 1,8);
-INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('kontener', 2, 4,5, 1,8, 2,3);
-INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('tir', 6, 6, 2, 2,5);
+INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('bus', 1.5, 3.5, 1.8, 1.8);
+INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('kontener', 2, 4.5, 1.8, 2.3);
+INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('tir', 6, 6, 2, 2.5);
 
-INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (1, 'lodówka side-by-side', 100, 1, 1, 1,8);
-INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (2, 'szafa i komoda', 80, 1, 2, 1,8);
-INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (3, '8 palet skrzynek z owocami ', 2000, 4, 2, 1,5);
-INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (4, 'paczka', 20, 3, 2, 0,2);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (1, 'lodÃ³wka side-by-side', 100, 1, 1, 1.8);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (2, 'szafa i komoda', 80, 1, 2, 1.8);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (3, '8 palet skrzynek z owocami ', 2000, 4, 2, 1.5);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (4, 'paczka', 20, 3, 2, 0.2);
 
 INSERT INTO crew (id_crew, car) VALUES (1, 'bus');
 INSERT INTO crew (id_crew, car) VALUES (2, 'bus');
@@ -123,14 +123,14 @@ INSERT INTO crew (id_crew, car) VALUES (5, 'kontener');
 
 INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (1, 'Jan', 'Kowalski', 'kierowca');
 INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (2, 'Tomasz', 'Malinowski', 'kierowca');
-INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (3, 'Micha³', 'Nowak', 'dyspozytor');
+INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (3, 'MichaÅ‚', 'Nowak', 'dyspozytor');
 INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (4, 'Robert', 'Dabek', 'dyspozytor');
 INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (5, 'Krzysztof', 'Mazurek', 'kierowca');
 
-INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (1, '2018-12-14', '9:00', 'bus', 2, 1, 2, '785965236', 10, 150, 1, DEFAULT, 'przyjête', 3, 'brak mo¿liwoœci wjazdu na posesjê', NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (1, '2018-12-14', '9:00', 'bus', 2, 1, 2, '785965236', 10, 150, 1, DEFAULT, 'przyjÄ™te', 3, 'brak moÅ¼liwoÅ›ci wjazdu na posesjÄ™', NULL);
 INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (2, '2018-12-16', '8:00', 'bus', 1, 3, 4, '589652321', 5, 80, 2, 1, 'przydzielone', 4, NULL, NULL);
 INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (3, '2018-12-22', '12:00', 'kontener', 3, 5, 6, '652325521', 50, 3000, 3, 5, 'zaakceptowane', 3, NULL, NULL);
-INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (4, '2018-12-10', '14:00', 'bus', 2, 7, 8, '603254789', 3, 100, 4, DEFAULT, 'przyjete', 4, 'remont drogi, podjechaæ od Piaskowej', NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (4, '2018-12-10', '14:00', 'bus', 2, 7, 8, '603254789', 3, 100, 4, DEFAULT, 'przyjete', 4, 'remont drogi, podjechaÄ‡ od Piaskowej', NULL);
 
 INSERT INTO users (id_user, login, password) VALUES (1, 'jkowalski', 'abc123');
 INSERT INTO users (id_user, login, password) VALUES (2, 'tmalinowski', 'abc123');
