@@ -15,4 +15,20 @@ $('[data-toggle="modal"]').on('click', function (e) {
   var $modalAttribute = $(modalSelector + ' #modal-order-id');
   var dataValue = $target.data("order-id");
   $modalAttribute.text(dataValue || '');
+  //$.post("/components/dyspozytor_main.php", {"id_zlecenia": dataValue});
+
+  // $.ajax
+  // ({
+  //   type: "POST",
+  //   url: "/components/zlecenie_szczegoly_script.php",
+  //   data: {"id_zlec": dataValue}
+  // });
+  // $.ajax
+  // ({
+  //   type: "POST",
+  //   url: "/components/zlecenie_szczegoly.php",
+  //   data: {"id_zlec": dataValue}
+  // });
 });
+
+
