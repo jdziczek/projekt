@@ -34,7 +34,6 @@
       <!-- content -->
       <h2>Zarządzanie zleceniami</h2>
       <h3>Kalendarz zleceń</h3>
-      <h4>Zlecone 7.11.2018</h4>
         <table class="w3-table-all w3-hoverable">
           <thead>
             <tr class="w3-light-grey">
@@ -45,95 +44,62 @@
               <th>Usuń</th>
             </tr>
           </thead>
-          <tr>
-            <td>-</td>
-            <td>2018/255</td>
-            <td><i class="fa fa-truck w3-text-red"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-          <tr>
-            <td>K07</td>
-            <td>2018/254</td>
-            <td><i class="fa fa-truck w3-text-red"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-          <tr>
-            <td>K04</td>
-            <td>2018/253</td>
-            <td><i class="fa fa-truck w3-text-orange"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-        </table>
-       <br>
-       <h4>Zlecone 6.11.2018</h4>
-        <table class="w3-table-all w3-hoverable">
-          <thead>
-            <tr class="w3-light-grey">
-              <th>Numer kierowcy</th>
-              <th>Numer zlecenia</th>
-              <th>Status</th>
-              <th>Szczegóły</th>
-              <th>Usuń</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>K06</td>
-            <td>2018/252</td>
-            <td><i class="fa fa-truck w3-text-red"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-          <tr>
-            <td>K03</td>
-            <td>2018/251</td>
-            <td><i class="fa fa-truck w3-text-orange"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-          <tr>
-            <td>K05</td>
-            <td>2018/250</td>
-            <td><i class="fa fa-truck w3-text-orange"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-        </table>
-       <br>
-      <h4>Zlecone 5.11.2018</h4>
-        <table class="w3-table-all w3-hoverable">
-          <thead>
-            <tr class="w3-light-grey">
-              <th>Numer kierowcy</th>
-              <th>Numer zlecenia</th>
-              <th>Status</th>
-              <th>Szczegóły</th>
-              <th>Usuń</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>K02</td>
-            <td>2018/249</td>
-            <td><i class="fa fa-truck w3-text-orange"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-          <tr>
-            <td>K01</td>
-            <td>2018/248</td>
-            <td><i class="fa fa-truck w3-text-green"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
-          <tr>
-            <td>K08</td>
-            <td>2018/247</td>
-            <td><i class="fa fa-truck w3-text-green"></i></td>
-            <td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal"></i></td>
-            <td><i class="fa fa-close"></i></td>
-          </tr>
+<?php
+	require_once "connect.php";
+	
+	$polaczenie = @new mysqli($host,$db_user,$db_password,$db_name);
+	
+	if($polaczenie->connect_errno!=0)
+	{
+		echo "Error:".$polaczenie->connect_errno;
+	}
+	else
+	{
+		if ($rezultat = @$polaczenie->query(
+		sprintf("SELECT *, status FROM orders",
+		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
+		{
+			//echo $_SESSION['id_uzytkownika'];
+			$ile_zlecen=$rezultat->num_rows;
+			
+			//echo $ile_zlecen;
+			
+			while($row=mysqli_fetch_array($rezultat))
+			{
+          echo"<tr>";
+          echo"<td>";
+          echo $row['id_crew'];
+          echo"</td>";
+					echo"<td>";
+					echo $row['id_order'];
+					echo"</td>";
+					echo"<td>";
+					if($row['status']=="przyjete")
+					{
+						echo'<i class="fa fa-truck w3-text-orange"></i>';
+					}
+					else if($row['status']=="zrealizowane")
+					{
+						echo'<i class="fa fa-truck w3-text-green"></i>';
+					}
+					else if($row['status']=="anulowane")
+					{
+						echo'<i class="fa fa-truck w3-text-red"></i>';
+					}
+					echo"</td>";
+          echo'<td><i data-order-id="';
+          echo $row['id_order'];
+          echo '" class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal">';
+          echo"</i></td>";
+          echo'<td><i data-order-id="';
+          echo $row['id_order'];
+          echo '" class="fa fa-close" data-toggle="modal" data-target="#zlecenieUsunModal">';
+          echo"</i></td>";
+				echo"</tr>";
+			}
+		}
+	}
+?>
         </table>
       <p>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#noweZlecenieModal">Dodaj zlecenie</a>
@@ -146,6 +112,7 @@
     </div>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_dodaj.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_usun.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_legenda.php'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
