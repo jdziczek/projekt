@@ -11,6 +11,11 @@
       <div class="modal-body">
         <form action="zlecenie_usun_script.php" method="post">
           <div>
+              <label>Captcha:</label>
+              <input type="text" name="id_to_remove" id="id_to_remove" value="" />
+              <p></p>
+            </div>
+          <div>
             <input class="w3-button w3-red" type="submit" value="Usuń" />
           </div>
         </form>
