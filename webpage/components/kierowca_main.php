@@ -83,23 +83,27 @@
 					}
 					else if($row['status']=="anulowane")
 					{
-						echo'<i class="fa fa-truck w3-text-red"></i>';
+						echo'<i id=";
+						class="fa fa-truck w3-text-red"></i>';
 					}
 					echo"</td>";
+					$_SESSION['id_zlecenia']=$row['id_order'];
 					echo'<td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal">';
-					//$_SESSION['id_zlecenia']=$row['id_order'];
+					
 					echo"</i></td>";
 				echo"</tr>";
 			}
 		}
 	}
 ?>
+
+
         </table>
       <!-- content -->
       </div>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
     </div>
-    <?php //require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly_script.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly.php'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="/js/main.js"></script>
