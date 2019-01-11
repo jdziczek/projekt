@@ -8,27 +8,42 @@ function hideSideBar() {
     document.getElementById("shadow").style.display = "none";
 }
 
-// Przekazyawnie numeru zlecenia do modala szczegolow zlecenia
-$('[data-toggle="modal"]').on('click', function (e) {
-  var $target = $(e.target);
-  var modalSelector = $target.data('target');
-  var $modalAttribute = $(modalSelector + ' #modal-order-id');
-  var dataValue = $target.data("order-id");
-  $modalAttribute.text(dataValue || '');
-  //$.post("/components/dyspozytor_main.php", {"id_zlecenia": dataValue});
-
-  // $.ajax
-  // ({
-  //   type: "POST",
-  //   url: "/components/zlecenie_szczegoly_script.php",
-  //   data: {"id_zlec": dataValue}
-  // });
-  // $.ajax
-  // ({
-  //   type: "POST",
-  //   url: "/components/zlecenie_szczegoly.php",
-  //   data: {"id_zlec": dataValue}
-  // });
+// Usuwanie zlecenia
+$(document).ready(function(){
+  $('.delete_zlecenie').click(function(e){
+    e.preventDefault();
+    var orderid = $(this).attr('data-order-id');
+    var parent = $(this).parent("td").parent("tr");
+    bootbox.dialog({
+      message: "Na pewno chcesz usunąć zlecenie?",
+      title: "Usuwanie zlecenia",
+      buttons: {
+        success: {
+          label: "Nie",
+          className: "w3-button w3-green",
+          callback: function() {
+            $('.bootbox').modal('hide');
+          }
+        },
+        danger: {
+          label: "Usuń!",
+          className: "w3-button w3-red",
+          callback: function() {
+            $.ajax({
+              type: 'POST',
+              url: '/components/zlecenie_usun_script.php',
+              data: 'orderid='+orderid
+            })
+            .done(function(response){
+              bootbox.alert(response);
+              parent.fadeOut('slow');
+            })
+            .fail(function(){
+              bootbox.alert('Error....');
+            })
+          }
+        }
+      }
+    });
+  });
 });
-
-

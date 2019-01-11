@@ -123,10 +123,6 @@
 			echo '" disabled/>';
 			?>
           </div>
-
-
-		  
-		  
           <div>
           <input class="w3-button w3-blue" type="submit" value="Modyfikuj" />
           </div>

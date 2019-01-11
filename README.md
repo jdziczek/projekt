@@ -2,7 +2,6 @@
 - [Authours](#authours)
 - [Title](#title)
 - [About project](#about-project)
-- [Building](#building)
 - [Running locally](#running-locally)
 
 ## Authours
@@ -20,14 +19,10 @@ Po zalogowaniu się przez dyspozytora aplikacja umożliwi tworzenie nowych zlece
 
 Widok kierowcy umożliwi wyświetlanie zleceń w kolejności chronologicznej (w formie kalendarza), szybki podgląd zlecenia oraz wydruk szegółów.
 
-## Building
-On the command line, make sure you are in the `webpage` directory, and type the following command to run the babel script and compile `main.js`:
-
-`npm run babel`
-
 ## Running locally
-On the command line, make sure you are in the `webpage` directory, and type the following command to start http-server:
-
-`npm start`
-
-Open a browser and access http://localhost:8080
+1. Turn on `wampserver`.
+2. Set database with phpMyAdmin: http://localhost/phpmyadmin/.
+- set database
+- set databese test data
+- set stored procedures.
+3. Open a browser and access http://localhost.
