@@ -19,7 +19,8 @@
   <title>JBD Logistics</title>
   <head>
     <meta charset="utf-8">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -92,11 +93,12 @@
           echo $row['id_order'];
           echo '" class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal">';
           echo"</i></td>";
-          echo'<td><i data-order-id="';
+          echo'<td><a class="delete_zlecenie" data-order-id="';
           echo $row['id_order'];
-          echo '" class="fa fa-close" data-toggle="modal" data-target="#zlecenieUsunModal">';
-          echo"</i></td>";
-				echo"</tr>";
+          echo '" href="javascript:void(0)">';
+          echo '<i class="fa fa-close">';
+          echo "</i></a></td>";
+				echo "</tr>";
 			}
 		}
 	}
@@ -113,10 +115,10 @@
     </div>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_dodaj.php'; ?>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_usun.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_legenda.php'; ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootbox.min.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,5 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsunZlecenie`(IN `orderid` INT(100))
+    MODIFIES SQL DATA
+DELETE FROM orders WHERE id_order = orderid$$
+DELIMITER ;
