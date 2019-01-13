@@ -2,6 +2,7 @@
 - [Authours](#authours)
 - [Title](#title)
 - [About project](#about-project)
+- [Used technologies](#used-technologies)
 - [Running locally](#running-locally)
 
 ## Authours
@@ -18,6 +19,15 @@ Będzie to aplikacja webowa posiadająca dwa możliwe widoki - widok dyspozytora
 Po zalogowaniu się przez dyspozytora aplikacja umożliwi tworzenie nowych zleceń transportowych, zarządzanie istniejącymi zleceniami, rozdysponowywanie zleceń między kierowców. Ponadto będzie posiadać narzędzia do zapisu planowanej trasy oraz orientacyjnej wyceny usługi.
 
 Widok kierowcy umożliwi wyświetlanie zleceń w kolejności chronologicznej (w formie kalendarza), szybki podgląd zlecenia oraz wydruk szegółów.
+
+## Used technologies
+- HTML
+- CSS
+- PHP
+- JavaScript
+- jQuery
+- Bootstrap
+- SQL (mySQL)
 
 ## Running locally
 1. Turn on `wampserver`.
