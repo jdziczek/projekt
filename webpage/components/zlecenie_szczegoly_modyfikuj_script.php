@@ -4,8 +4,8 @@
 	$conn = mysqli_connect($host, $db_user, $db_password, $db_name);
 
   //update zamowienia
-  $sql = "UPDATE orders SET car_type='".$_POST['car_type']."', people='".$_POST['people']."', phone='".$_POST['phone']."', distance='".$_POST['distance']."', valuation='".$_POST['valuation']."', distance='".$_POST['distance']."' WHERE id_order='".$_SESSION['orderid']."'";
-
+  $sql = "UPDATE orders SET car_type='".$_POST['car_type']."', people='".$_POST['people']."', phone='".$_POST['phone']."', distance='".$_POST['distance']."', valuation='".$_POST['valuation']."', distance='".$_POST['distance']."' WHERE id_order='".$_POST['order_id']."'";
+  
   if (mysqli_query($conn, $sql)) {
     echo "Record edited successfully";
     header('Location: dyspozytor_main.php');
