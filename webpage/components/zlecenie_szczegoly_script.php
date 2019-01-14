@@ -3,8 +3,6 @@
   require_once "connect.php";
   $conn = mysqli_connect($host, $db_user, $db_password, $db_name);
 
-  $_SESSION['orderid'] = $_REQUEST['orderid'];
-
   $sql1 = "SELECT * FROM orders WHERE id_order='".$_REQUEST['orderid']."'";
   $result = mysqli_query($conn, $sql1);
   $order = mysqli_fetch_array($result);
@@ -24,8 +22,17 @@
   $result4 = mysqli_query($conn, $sql4);
   $cargo = mysqli_fetch_array($result4);
 
- echo "<form action='zlecenie_szczegoly_modyfikuj_script2.php' method='post' id='zlecenieForm'>";
+ echo "<form action='zlecenie_szczegoly_modyfikuj_script.php' method='post' id='zlecenieForm'>";
  echo "<div id='wrapper1'>";
+   echo "<div>";
+     echo "<h4> Podstawowe informacje</h4>";
+     echo "<label>Nr:</label>";
+     echo "<input type='text' name='order_id' id='order_id' value='".$_REQUEST['orderid']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Data zlecenia:</label>";
+     echo "<input type='text' name='order_date' id='order_date' min='1' value='".$order['order_date']."' disabled/>";
+   echo "</div>";
    echo "<div>";
      echo "<h4> Adres początkowy</h4>";
      echo "<label>Ulica:</label>";
@@ -127,9 +134,9 @@
  echo "</div>";
  echo "</form>";
  echo "<h4> Komentarz dyspozytora</h4>";
- echo "<textarea rows='2' cols='70' name='comment_dispatcher' form='zlecenieForm' >".$order['comment_disp']."</textarea>";
+ echo "<textarea rows='2' cols='70' name='comment_dispatcher' form='zlecenieForm' disabled>".$order['comment_disp']."</textarea>";
  echo "<h4> Komentarz kierowcy</h4>";
- echo "<textarea rows='2' cols='70' name='comment_driver' form='zlecenieForm' >".$order['comment_driver']."</textarea>";
+ echo "<textarea rows='2' cols='70' name='comment_driver' form='zlecenieForm' disabled>".$order['comment_driver']."</textarea>";
  echo "<div>";
   echo "<input class='w3-button w3-blue' type='submit' value='Modyfikuj' form='zlecenieForm' />";
  echo "</div>";

@@ -60,10 +60,7 @@
 		sprintf("SELECT *, status FROM orders",
 		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
 		{
-			//echo $_SESSION['id_uzytkownika'];
 			$ile_zlecen=$rezultat->num_rows;
-			
-			//echo $ile_zlecen;
 			
 			while($row=mysqli_fetch_array($rezultat))
 			{
