@@ -75,8 +75,67 @@
         </button>
         <h4 class="modal-title" id="zlecenieModalLabel">Szczegóły Zlecenia <span id="modal-order-id"></span></h4>
       </div>
-      <div class="modal-body" id="zlecenie_szczegoly">
+      <div class="modal-body">
+        <form>
+				     <div>
+            <label>Adres początkowy:</label>
+			<?php
+            echo'<input type="text" name="s_adress" id="s_adress" style="width:400px" value="';
+			echo $_SESSION['s_adress'];
+			echo '" disabled/>';
+			?>
+          </div>
+		  
+		   <div>
+            <label>Adres końcowy:</label>
+			<?php
+            echo'<input type="text" name="f_adress" id="f_adress" style="width:400px" value="';
+			echo $_SESSION['f_adress'];
+			echo '" disabled/>';
+			?>
+          </div>
+        <div>
+            <label>Typ auta:</label>
+            <?php
+			echo'<input type="text" name="car_type" id="car_type" value="';
+			echo $_SESSION['car_type'];
+			echo '" disabled/>';
+			?>
+          </div>
+          <div>
+            <label>Ludzie:</label>
+			<?php
+            echo'<input type="text" name="people" id="people" value="';
+			echo $_SESSION['people'];
+			echo '" disabled/>';
+			?>
+          </div>
+          <div>
+            <label>Dystans:</label>
+			<?php
+            echo'<input type="text" name="distance" id="distance" value="';
+			echo $_SESSION['distance'];
+			echo '" disabled/>';
+			?>
+          </div>
+          <div>
+            <label>Telefon:</label>
+			<?php
+            echo'<input type="text" name="phone" id="phone" value="';
+			echo $_SESSION['phone'];
+			echo '" disabled/>';
+			?>
+          </div>
+
+
+		  
+		  
+          <div>
+          <input class="w3-button w3-blue" type="submit" value="Modyfikuj" />
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+
