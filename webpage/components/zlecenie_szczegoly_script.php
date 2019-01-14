@@ -3,6 +3,8 @@
   require_once "connect.php";
   $conn = mysqli_connect($host, $db_user, $db_password, $db_name);
 
+  $_SESSION['orderid'] = $_REQUEST['orderid'];
+
   $sql1 = "SELECT * FROM orders WHERE id_order='".$_REQUEST['orderid']."'";
   $result = mysqli_query($conn, $sql1);
   $order = mysqli_fetch_array($result);
@@ -22,7 +24,7 @@
   $result4 = mysqli_query($conn, $sql4);
   $cargo = mysqli_fetch_array($result4);
 
- echo "<form>";
+ echo "<form action='zlecenie_szczegoly_modyfikuj_script2.php' method='post' id='zlecenieForm'>";
  echo "<div id='wrapper1'>";
    echo "<div>";
      echo "<h4> Adres początkowy</h4>";
