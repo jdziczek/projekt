@@ -1,11 +1,16 @@
 <?php
 
+	if(!isset($_SESSION['zalogowany']))
+	{
+		header('Location: logowanie.php');
+		exit(); 
+	}
 	require_once "connect.php";
 	
 	$conn = @new mysqli($host,$db_user,$db_password,$db_name);
 	
-	
-	
+	if(isset($_SESSION['id_zlecenia']))
+	{
 	$id_zlec=$_SESSION['id_zlecenia'];
 	
 	
@@ -29,7 +34,6 @@
 	//echo $f_address;
 	//echo $s_address;
 	
-	//i tak dalej co będzie potrzebne 
 	
 	$sql2="SELECT * FROM address WHERE id_address='$f_address'";
 	$sql3="SELECT * FROM address WHERE id_address='$s_address'";
@@ -57,8 +61,7 @@
   {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
   }
-  
-  
+	}
   
 ?>
 
