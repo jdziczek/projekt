@@ -4,8 +4,9 @@
 	
 	$conn = @new mysqli($host,$db_user,$db_password,$db_name);
 	
-	
-	
+  $sql1 = "SELECT * FROM orders WHERE id_order='".$_REQUEST['orderid']."'";
+  $result = mysqli_query($conn, $sql1);
+  $order = mysqli_fetch_array($result);
 
   $f_address_id=$order['f_address'];
   $sql2 = "SELECT * FROM address WHERE id_address='$f_address_id'";
