@@ -14,15 +14,15 @@
 	else
 	{
 		$_SESSION['login'] = $_POST['login'];
-		$login=$_POST['login'];
+		$arg_login=$_POST['login'];
 		$haslo=$_POST['haslo'];
 		
-		$login=htmlentities($login, ENT_QUOTES,"UTF-8"); //czyszczenie z encji htmla
+		$arg_login=htmlentities($arg_login, ENT_QUOTES,"UTF-8"); //czyszczenie z encji htmla
 	
 		if ($rezultat = @$polaczenie->query(
-		sprintf("SELECT * FROM users WHERE BINARY login='%s'",// AND BINARY password='%s'", //sprawdzić poprawność zapytania sql
-		mysqli_real_escape_string($polaczenie,$login))))
-		//mysqli_real_escape_string($polaczenie,$haslo))))
+		sprintf("CALL Zaloguj('%s')",
+		//sprintf("SELECT * FROM logging WHERE BINARY login='%s'",
+		mysqli_real_escape_string($polaczenie,$arg_login))))
 		{
 			$ilu_userow=$rezultat->num_rows;
 			if($ilu_userow>0)
@@ -35,12 +35,12 @@
 					$id=$wiersz['id_user'];
 					$_SESSION['id_uzytkownika']=$id;
 				
-					if($typ_log = @$polaczenie->query(
-					sprintf("SELECT * FROM employees WHERE id_employee='%s'",
-					mysqli_real_escape_string($polaczenie,$id))))
-					{
-						$wiersz2=$typ_log->fetch_assoc();
-						$_SESSION['typ_konta']=$wiersz2['position'];
+					//if($typ_log = @$polaczenie->query(
+					//sprintf("SELECT * FROM employees WHERE id_employee='%s'",
+					//mysqli_real_escape_string($polaczenie,$id))))
+					//{
+						//$wiersz2=$typ_log->fetch_assoc();
+						$_SESSION['typ_konta']=$wiersz['position'];
 						if($_SESSION['typ_konta']=="dyspozytor")
 						{
 							$_SESSION['zalogowany_D']=true;						//zalogowany dyspozytor
@@ -56,7 +56,7 @@
 							$_SESSION['blad']='<span style="color:red">Problem połączenia z bazą. Proszę spróbować później.</span>';
 							header('Location: logowanie.php');
 						}
-					}
+					//}
 					unset($_SESSION['blad']); //usuwa zmienna blad
 					$rezultat->free_result();
 					if($_SESSION['zalogowany_D'])
