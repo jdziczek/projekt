@@ -83,8 +83,7 @@
 					}
 					else if($row['status']=="anulowane")
 					{
-						echo'<i id=";
-						class="fa fa-truck w3-text-red"></i>';
+						echo'<i class="fa fa-truck w3-text-red"></i>';
 					}
 					echo"</td>";
           echo'<td><a class="zlecenie_szczegoly" data-order-id="';
