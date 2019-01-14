@@ -6,16 +6,22 @@ do pliku konfiguracyjnego .htaccess-- KOMENTARZ PÓŹNIEJ DO USUNIĘCIA-->
 	
 	session_start();
 	
-	if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany_D']==true))
+	if((isset($_SESSION['zalogowany'])))
 	{
-		header('Location: dyspozytor_main.php');
-		exit(); //wyjscie z pliku
+		if($_SESSION['zalogowany_D']==true)
+		{
+			header('Location: dyspozytor_main.php');
+			exit(); //wyjscie z pliku
+		}
+		else if($_SESSION['zalogowany_K']==true)
+		{
+			header('Location: kierowca_main.php');
+			exit(); //wyjscie z pliku
+		}
+		
+		
 	}
-	else if((isset($_SESSION['zalogowany']))&&($_SESSION['zalogowany_K']==true))
-	{
-		header('Location: kierowca_main.php');
-		exit(); //wyjscie z pliku
-	}
+
 		
 ?>
 
@@ -37,11 +43,13 @@ do pliku konfiguracyjnego .htaccess-- KOMENTARZ PÓŹNIEJ DO USUNIĘCIA-->
       <div class="w3-container">
       <!-- content -->
         <h2>Logowanie</h2>
+		
         <form action="zaloguj.php" method="post">
           Login: <br /><input type="text" name="login" /></br>
           Hasło: <br /><input type="password" name="haslo" /></br></br>
           <input type="submit" value="Zaloguj się" />
         </form>	
+		<h6>Jeśli nie pamietasz hasła skontaktuj się z administratorem.</h6>
       <!-- content -->
       </div>
       <?php
