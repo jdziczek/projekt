@@ -86,10 +86,11 @@
 						echo'<i class="fa fa-truck w3-text-red"></i>';
 					}
 					echo"</td>";
-					$_SESSION['id_zlecenia']=$row['id_order'];
-					echo'<td><i class="fa fa-search" data-toggle="modal" data-target="#zlecenieModal">';
-					
-					echo"</i></td>";
+          echo'<td><a class="zlecenie_szczegoly" data-order-id="';
+          echo $row['id_order'];
+          echo '" href="javascript:void(0)">';
+          echo '<i class="fa fa-search">';
+          echo "</i></a></td>";
 				echo"</tr>";
 			}
 		}
