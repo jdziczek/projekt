@@ -53,7 +53,6 @@ $(document).ready(function(){
   $('.zlecenie_szczegoly').click(function(e){
     e.preventDefault();
     var orderid = $(this).attr('data-order-id');
-    var parent = $(this).parent("td").parent("tr");
     $.ajax({
       type: 'GET',
       url: '/components/zlecenie_szczegoly_script.php',

@@ -134,9 +134,9 @@
  echo "</div>";
  echo "</form>";
  echo "<h4> Komentarz dyspozytora</h4>";
- echo "<textarea rows='2' cols='70' name='comment_dispatcher' form='zlecenieForm' >".$order['comment_disp']."</textarea>";
+ echo "<textarea rows='2' cols='70' name='comment_dispatcher' form='zlecenieForm' disabled>".$order['comment_disp']."</textarea>";
  echo "<h4> Komentarz kierowcy</h4>";
- echo "<textarea rows='2' cols='70' name='comment_driver' form='zlecenieForm' >".$order['comment_driver']."</textarea>";
+ echo "<textarea rows='2' cols='70' name='comment_driver' form='zlecenieForm' disabled>".$order['comment_driver']."</textarea>";
  echo "<div>";
   echo "<input class='w3-button w3-blue' type='submit' value='Modyfikuj' form='zlecenieForm' />";
  echo "</div>";

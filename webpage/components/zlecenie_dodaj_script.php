@@ -24,10 +24,6 @@
   $result = mysqli_query($conn, $sql);
   $id_cargo = $conn->insert_id;
 
-  //znalezienie id dispatchera
-  //$sql = "SELECT id_user FROM users
-  //WHERE login=$_POST['login'];";
-  //$id_dispatcher = mysqli_query($conn, $sql);
   $id_dispatcher="1";
 
   //insert zamowienia
