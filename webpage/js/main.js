@@ -34,16 +34,35 @@ $(document).ready(function(){
               url: '/components/zlecenie_usun_script.php',
               data: 'orderid='+orderid
             })
-            .done(function(response){
-              bootbox.alert(response);
-              parent.fadeOut('slow');
-            })
-            .fail(function(){
-              bootbox.alert('Error....');
-            })
+              .done(function(response){
+                bootbox.alert(response);
+                parent.fadeOut('slow');
+              })
+              .fail(function(){
+                bootbox.alert('Error....');
+              })
           }
         }
       }
     });
+  });
+});
+
+// Wyswietlanie zlecenia
+$(document).ready(function(){
+  $('.zlecenie_szczegoly').click(function(e){
+    e.preventDefault();
+    var orderid = $(this).attr('data-order-id');
+    var parent = $(this).parent("td").parent("tr");
+    $.ajax({
+      type: 'GET',
+      url: '/components/zlecenie_szczegoly_script.php',
+      dataType: "html",
+      data: 'orderid='+orderid,
+      success: function(response){                    
+        $('#zlecenie_szczegoly').html(response);
+        $('#zlecenieModal').modal('show');
+    }
+    })
   });
 });

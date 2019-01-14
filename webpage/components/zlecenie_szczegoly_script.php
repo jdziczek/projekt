@@ -1,62 +1,133 @@
 <?php
+// polaczenie z baza
+  require_once "connect.php";
+  $conn = mysqli_connect($host, $db_user, $db_password, $db_name);
 
-	require_once "connect.php";
-	
-	$conn = @new mysqli($host,$db_user,$db_password,$db_name);
-	
-	
-	
+  $sql1 = "SELECT * FROM orders WHERE id_order='".$_REQUEST['orderid']."'";
+  $result = mysqli_query($conn, $sql1);
+  $order = mysqli_fetch_array($result);
 
-	$sql = "SELECT * FROM orders WHERE id_orders='$_SESSION('id_zlecenia')'";
-  
-  if ($rezultat=mysqli_query($conn, $sql)) 
-  {
-    //echo "New record created successfully";
-    //header('Location: dyspozytor_main.php');
-	$_SESSION['zlecenie']=$rezultat->fetch_assoc();
-	$_SESSION['car_type']= $zlecenie['car_type'];
-	$_SESSION['people']=$zlecenie['people'];
-	$_SESSION['distance']=$zlecenie['distance'];
-	$_SESSION['comment_disp']=$zlecenie['comment_disp'];
-	$f_address=$zlecenie['f_address'];
-	$s_address=$zlecenie['s_address'];
-	
-	//i tak dalej co będzie potrzebne 
-	
-	$sql2="SELECT * FROM address WHERE id_address='f_address'";
-	$sql3="SELECT * FROM address WHERE id_address='s_address'";
-	
-	if ($adres_f=mysqli_query($conn, $sql2))
-	{
-		$addr=$adres_f->fetch_assoc(); //adres końcowy
-		$_SESSION['f_adress']=$addr['street']." ".$addr['a_number']."/".$addr['b_number']." ".$addr['zip_code']." ".$addr['city'];
-		//street
-		//b_number
-		//a_number
-		//zip_code
-		//city
-	}
-	if ($adres_s=mysqli_query($conn, $sql3))
-	{
-		$addr2=$adres_s->fetch_assoc(); //adres początkowy
-		$_SESSION['s_adress']=$addr2['street']." ".$addr2['a_number']."/".$addr2['b_number']." ".$addr2['zip_code']." ".$addr2['city'];
-	}	
-	
-	header('Location: zlecenie_szczegoly.php');
-  } 
-  else 
-  {
-    //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	if($_SESSION['zalogowany_D'])
-	{
-		header('Location: dyspozytor_main.php');
-	}
-	else
-	{
-		header('Location: kierowca_main.php');
-	}
-  }
-  
-  
-  
-?>
+  $f_address_id=$order['f_address'];
+  $sql2 = "SELECT * FROM address WHERE id_address='$f_address_id'";
+  $result2 = mysqli_query($conn, $sql2);
+  $f_address = mysqli_fetch_array($result2);
+
+  $s_address_id=$order['s_address'];
+  $sql3 = "SELECT * FROM address WHERE id_address='$s_address_id'";
+  $result3 = mysqli_query($conn, $sql3);
+  $s_address = mysqli_fetch_array($result3);
+
+  $cargo_id=$order['id_cargo'];
+  $sql4 = "SELECT * FROM cargo WHERE id_cargo='$cargo_id'";
+  $result4 = mysqli_query($conn, $sql4);
+  $cargo = mysqli_fetch_array($result4);
+
+ echo "<form>";
+ echo "<div id='wrapper1'>";
+   echo "<div>";
+     echo "<h4> Adres początkowy</h4>";
+     echo "<label>Ulica:</label>";
+     echo "<input type='text' name='f_adress_street' id='f_adress_street' required pattern='[a-zA-Z]{1,}' value='".$f_address['street']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Numer domu:</label>";
+     echo "<input type='number' name='f_adress_b_number' id='f_adress_b_number' min='1' value='".$f_address['b_number']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Numer lokalu:</label>";
+     echo "<input type='number' name='f_adress_a_number' id='f_adress_a_number' min='1' value='".$f_address['a_number']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Kod pocztowy:</label>";
+     echo "<input type='text' name='f_adress_zip_code' id='f_adress_zip_code' required pattern='[0-9]{2}-[0-9]{3}' value='".$f_address['zip_code']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Miasto:</label>";
+     echo "<input type='text' name='f_adress_city' id='f_adress_city' required pattern='[a-zA-Z]{1,}' value='".$f_address['city']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Piętro:</label>";
+     echo "<input type='number' name='f_adress_floor' id='f_adress_floor' min='1' value='".$f_address['floor']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<h4> Adres końcowy</h4>";
+     echo "<label>Ulica:</label>";
+     echo "<input type='text' name='s_adress_street' id='s_adress_street' required pattern='[a-zA-Z]{1,}' value='".$s_address['street']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Numer domu:</label>";
+     echo "<input type='number' name='s_adress_b_number' id='s_adress_b_number' min='1' value='".$s_address['b_number']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Numer lokalu:</label>";
+     echo "<input type='number' name='s_adress_a_number' id='s_adress_a_number' min='1' value='".$s_address['a_number']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Kod pocztowy:</label>";
+     echo "<input type='text' name='s_adress_zip_code' id='s_adress_zip_code' required pattern='[0-9]{2}-[0-9]{3}' value='".$s_address['zip_code']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Miasto:</label>";
+     echo "<input type='text' name='s_adress_city' id='s_adress_city' required pattern='[a-zA-Z]{1,}' value='".$s_address['city']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Piętro:</label>";
+     echo "<input type='number' name='s_adress_floor' id='s_adress_floor' min='1' value='".$s_address['floor']."'/>";
+   echo "</div>";
+ echo "</div>";
+ echo "<div id='wrapper2'>";
+   echo "<div>";
+     echo "<h4> Ładunek</h4>";
+     echo "<label>Opis:</label>";
+     echo "<input type='text' name='cargo_dsc' id='cargo_dsc' value='".$cargo['cargo_dsc']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Waga:</label>";
+     echo "<input type='number' name='cargo_weight' id='cargo_weight' min='1' value='".$cargo['cargo_weight']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Długość:</label>";
+     echo "<input type='text' name='cargo_length' id='cargo_length' value='".$cargo['cargo_length']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Szerokość:</label>";
+     echo "<input type='text' name='cargo_width' id='cargo_width' value='".$cargo['cargo_width']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Wysokość:</label>";
+     echo "<input type='text' name='cargo_height' id='cargo_height' value='".$cargo['cargo_height']."'/>";
+   echo "</div>";
+   echo "<h4> Inne dane</h4>";
+   echo "<div>";
+     echo "<label>Typ auta:</label>";
+     echo "<input type='text' name='car_type' id='car_type' value='".$order['car_type']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Ludzie:</label>";
+     echo "<input type='number' name='people' id='people' min='1' max='20' value='".$order['people']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Telefon:</label>";
+     echo "<input type='text' name='phone' id='phone' required pattern='[0-9]{6-15}' value='".$order['phone']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Dystans:</label>";
+     echo "<input type='text' name='distance' id='distance' value='".$order['distance']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Wycena:</label>";
+     echo "<input type='text' name='valuation' id='valuation' value='".$order['valuation']."'/>";
+   echo "</div>";
+   echo "<div>";
+     echo "<label>Przydzielona ekipa:</label>";
+     echo "<input type='text' name='id_crew' id='id_crew' value='".$order['id_crew']."'/>";
+   echo "</div>";
+ echo "</div>";
+ echo "</form>";
+ echo "<h4> Komentarz dyspozytora</h4>";
+ echo "<textarea rows='2' cols='70' name='comment_dispatcher' form='zlecenieForm' >".$order['comment_disp']."</textarea>";
+ echo "<h4> Komentarz kierowcy</h4>";
+ echo "<textarea rows='2' cols='70' name='comment_driver' form='zlecenieForm' >".$order['comment_driver']."</textarea>";
+ echo "<div>";
+  echo "<input class='w3-button w3-blue' type='submit' value='Modyfikuj' form='zlecenieForm' />";
+ echo "</div>";
