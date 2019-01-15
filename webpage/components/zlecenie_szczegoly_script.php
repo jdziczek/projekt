@@ -132,10 +132,10 @@
      echo "<label>Przydzielona ekipa:</label>";
      echo "<input type='text' name='id_crew' id='id_crew' value='".$order['id_crew']."'/>";
    echo "</div>";
+  echo "<h4> Status</h4>";
+  echo "<label>przyjete/zrealizowane/anulowane</label>";
+  echo "<div>";
  echo "</div>";
- echo "<h4> Status</h4>";
- echo "<label>przyjete/zrealizowane/anulowane</label>";
- echo "<div>";
    echo "<input type='text' name='status' id='status' value='".$order['status']."'/>";
  echo "</div>";
  echo "</form>";
