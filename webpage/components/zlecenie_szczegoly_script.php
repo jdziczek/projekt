@@ -133,6 +133,11 @@
      echo "<input type='text' name='id_crew' id='id_crew' value='".$order['id_crew']."'/>";
    echo "</div>";
  echo "</div>";
+ echo "<h4> Status</h4>";
+ echo "<label>przyjete/zrealizowane/anulowane</label>";
+ echo "<div>";
+   echo "<input type='text' name='status' id='status' value='".$order['status']."'/>";
+ echo "</div>";
  echo "</form>";
  echo "<h4> Komentarz dyspozytora</h4>";
  echo "<textarea rows='2' cols='70' name='comment_dispatcher' form='zlecenieForm' disabled>".$order['comment_disp']."</textarea>";
