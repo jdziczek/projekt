@@ -65,7 +65,7 @@
             }
 
                 function zeruj(){
-                window.document.getElementById("pole").innerHTML = 'Kliknij "Oblicz"!';
+                window.document.getElementById("pole").innerHTML = '';
                 }
 
             function licz(f)
@@ -206,10 +206,6 @@
             <script src="http://code.jquery.com/jquery-latest.js"></script>
 
             <form action="" name="kalkulator" id="kalkulator" onsubmit="licz(this); return false">
-            <h4> Wybierz wielkość auta:<br /></h4>
-            <input style="display: none;" type="radio" id="baga" name="auto" value="1" checked /> <button onclick="zaznaczb(); return false" onmouseup="zeruj()"><img id="baga" src="img/b1.png" alt="bagazowka"/></button>
-            <input style="display: none;" type="radio" id="kont" name="auto" value="2"/> <button onclick="zaznaczk(); return false" onmouseup="zeruj()"><img id="kont" src="img/k1.png" alt="kontener" /></button>
-            <input style="display: none;" type="radio" id="tir" name="auto" value="3"/> <button onclick="zaznaczt(); return false" onmouseup="zeruj()"><img id="tir" src="img/t1.png" alt="ciężarowy" /></button><br /><br /><br />
 
 
             <h4> Wybierz ilość ludzi potrzebnych do załadunku: <br /> </h4>
@@ -219,9 +215,9 @@
             <option value=2 > Kierowca+1 </option>
             <option value=3 > Kierowca+2 </option>
             <option value=4 > Kierowca+3 </option>
-            </select><br /><br />
+            </select><br />
             <h4> Podaj długość trasy w km: <br /></h4>
-            <input type="number" id="km" name="km" onchange="zeruj()" /><br /><br />
+            <input type="number" id="km" name="km" onchange="zeruj()" /><br />
             <h4> Podaj sumę pięter w budynkach (bez windy): <br /> </h4>
             <select  id="pietra" name="pietra" onchange="zeruj()">
             <option value=0> są windy/partery </option>
@@ -248,17 +244,18 @@
             <option value=5> 5h </option>
             <option value=5.5> 5,5h </option>
             <option value=6> 6h </option>
-            </select> <br /> <br />
-            <input class="oblicz" type="submit" value="    Oblicz    "/>
+            </select> <br />
+            <h4> Wybierz wielkość auta:<br /></h4>
+            <input style="display: none;" type="radio" id="baga" name="auto" value="1" checked /> <button onclick="zaznaczb(); return false" onmouseup="zeruj()" class="w3-button w3-blue">BUS</button>
+            <input style="display: none;" type="radio" id="kont" name="auto" value="2"/> <button onclick="zaznaczk(); return false" onmouseup="zeruj()" class="w3-button w3-blue">KONTENER</button>
+            <input style="display: none;" type="radio" id="tir" name="auto" value="3"/> <button onclick="zaznaczt(); return false" onmouseup="zeruj()" class="w3-button w3-blue">TIR</button><br /><br /><br />
+            <input style="display: none;"  class="oblicz" type="submit" value="    Oblicz    "/>
             </form>
-            <h3 id="pole">Kliknij "Oblicz"!</h3>
+            <h3 id="pole"></h3>
       <!-- content -->
       </div>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
     </div>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly.php'; ?>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_dodaj.php'; ?>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_legenda.php'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/bootbox.min.js"></script>
