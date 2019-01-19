@@ -3,6 +3,8 @@
 	require_once "connect.php";
 	
 	$conn = @new mysqli($host,$db_user,$db_password,$db_name);
+	$conn -> query ('SET NAMES utf8');
+	$conn -> query ('SET CHARACTER_SET utf8_unicode_ci');
 	
   $sql1 = "SELECT * FROM orders WHERE id_order='".$_REQUEST['orderid']."'";
   $result = mysqli_query($conn, $sql1);
