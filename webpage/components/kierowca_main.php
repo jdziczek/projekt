@@ -37,8 +37,13 @@
           <thead>
             <tr class="w3-light-grey">
               <th>Numer zlecenia</th>
-              <th>Status</th>
-              <th>Szczegóły</th>
+              <th>Data zlecenia</th>
+              <th>Ludzie</th>
+              <th>Telefon</th>
+              <th>Dystans</th>
+              <th>Wycena</th>
+              <th class="center_content">Status</th>
+              <th class="center_content">Szczegóły</th>
             </tr>
           </thead>
          <!-- <tr>
@@ -58,7 +63,7 @@
 	else
 	{
 		if ($rezultat = @$polaczenie->query(
-		sprintf("SELECT id_order, status FROM orders WHERE id_crew = '%s'",
+		sprintf("SELECT * FROM orders WHERE id_crew = '%s'",
 		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
 		{
 			//echo $_SESSION['id_uzytkownika'];
@@ -71,8 +76,23 @@
 				echo"<tr>";
 					echo"<td>";
 					echo $row['id_order'];
-					echo"</td>";
-					echo"<td>";
+          echo"</td>";
+          echo "<td>";
+          echo $row['order_date'];
+          echo "</td>";
+          echo "<td>";
+          echo $row['people'];
+          echo "</td>";
+          echo "<td>";
+          echo $row['phone'];
+          echo "</td>";
+          echo "<td>";
+          echo $row['distance'];
+          echo " km</td>";
+          echo "<td>";
+          echo $row['valuation'];
+          echo " zł</td>";
+					echo'<td class="center_content">';
 					if($row['status']=="przyjete")
 					{
 						echo'<i class="fa fa-truck w3-text-orange"></i>';
@@ -86,7 +106,7 @@
 						echo'<i class="fa fa-truck w3-text-red"></i>';
 					}
 					echo"</td>";
-          echo'<td><a class="zlecenie_szczegoly" data-order-id="';
+          echo'<td class="center_content"><a class="zlecenie_szczegoly" data-order-id="';
           echo $row['id_order'];
           echo '" href="javascript:void(0)">';
           echo '<i class="fa fa-search">';
