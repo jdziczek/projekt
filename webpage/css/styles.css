@@ -14,6 +14,10 @@ p {
   text-align: center!important;
 }
 
+.disabled {
+  display: none;
+}
+
 #sidebar {
 	z-index: 3;
 	width: 200px;

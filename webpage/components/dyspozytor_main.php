@@ -112,7 +112,8 @@
       <p>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#noweZlecenieModal">Dodaj zlecenie</a>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#legendaModal">Legenda statusów</a>
-      <a href="/components/dyspozytor_archiwum.php" class="w3-button w3-blue">Archiwum</a>
+      <!--Archiwum button is disabled because archive is not ready -->
+      <a class="disabled" href="/components/dyspozytor_archiwum.php" class="w3-button w3-blue">Archiwum</a>
       </p>
       <!-- content -->
       </div>
