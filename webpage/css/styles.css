@@ -10,6 +10,10 @@ p {
   margin-inline-end: 0px;
 }
 
+.center_content {
+  text-align: center!important;
+}
+
 #sidebar {
 	z-index: 3;
 	width: 200px;
@@ -43,7 +47,7 @@ button {
   color: #fff!important;
   background-color: #3e9441!important;
 }
-.center_button {
+.center {
 	text-align: center!important;
 }
 
