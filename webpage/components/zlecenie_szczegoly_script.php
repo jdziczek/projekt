@@ -136,7 +136,7 @@
    echo "</div>";
    echo "<div>";
      echo "<label>Telefon:</label>";
-     echo "<input type='text' name='phone' id='phone' required pattern='[0-9]{6-15}' value='".$order['phone']."'/>";
+     echo "<input type='text' name='phone' id='phone' required pattern='.[0-9]{9}' value='".$order['phone']."'/>";
    echo "</div>";
    echo "<div>";
      echo "<label>Dystans:</label>";
