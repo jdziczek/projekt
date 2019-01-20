@@ -112,7 +112,23 @@
    echo "<h4> Inne dane</h4>";
    echo "<div>";
      echo "<label>Typ auta:</label>";
-     echo "<input type='text' name='car_type' id='car_type' value='".$order['car_type']."'/>";
+     echo '<select name="car_type" id="car_type" >';
+     if ($order['car_type'] =="bus") {
+      echo '<option value="bus" selected>bus</option>';
+      echo '<option value="kontener">kontener</option>';
+      echo '<option value="truck">truck</option>';
+     }
+     if ($order['car_type'] =="kontener") {
+      echo '<option value="bus">bus</option>';
+      echo '<option value="kontener" selected>kontener</option>';
+      echo '<option value="truck">truck</option>';
+     }
+     if ($order['car_type'] =="truck") {
+      echo '<option value="bus">bus</option>';
+      echo '<option value="kontener">kontener</option>';
+      echo '<option value="truck" selected>truck</option>';
+     }
+    echo "</select>";
    echo "</div>";
    echo "<div>";
      echo "<label>Ludzie:</label>";
@@ -135,10 +151,25 @@
      echo "<input type='text' name='id_crew' id='id_crew' value='".$order['id_crew']."'/>";
    echo "</div>";
   echo "<h4> Status</h4>";
-  echo "<label>przyjete/zrealizowane/anulowane</label>";
-  echo "<div>";
+   echo "<div>";
+   echo '<select name="status" id="status" >';
+   if ($order['status'] =="przyjete") {
+    echo '<option value="przyjete" selected>przyjete</option>';
+    echo '<option value="zrealizowane">zrealizowane</option>';
+    echo '<option value="anulowane">anulowane</option>';
+   }
+   if ($order['status'] =="zrealizowane") {
+    echo '<option value="przyjete">przyjete</option>';
+    echo '<option value="zrealizowane" selected>zrealizowane</option>';
+    echo '<option value="anulowane">anulowane</option>';
+   }
+   if ($order['status'] =="anulowane") {
+    echo '<option value="przyjete">przyjete</option>';
+    echo '<option value="zrealizowane">zrealizowane</option>';
+    echo '<option value="anulowane" selected>anulowane</option>';
+   }
+  echo "</select>";
  echo "</div>";
-   echo "<input type='text' name='status' id='status' value='".$order['status']."'/>";
  echo "</div>";
  echo "</form>";
  echo "<h4> Komentarz dyspozytora</h4>";
