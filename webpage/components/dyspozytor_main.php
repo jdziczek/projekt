@@ -59,10 +59,8 @@
 	else
 	{
 		if ($rezultat = @$polaczenie->query(
-    sprintf("SELECT * FROM orders",
-    // jesli zostanie poprawione dodawanie zlecen to mozna zmienic na (dispatcher widzi tylko swoje zlecenia):
-    // sprintf("SELECT * FROM orders WHERE id_dispatcher='%s' ",
-		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
+			sprintf("SELECT * FROM orders WHERE id_dispatcher='%s' ",
+			mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
 		{
 			$ile_zlecen=$rezultat->num_rows;
 			

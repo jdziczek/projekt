@@ -1,4 +1,6 @@
 <?php
+	
+	session_start();
 // polaczenie z baza
   require_once "connect.php";
 	$conn = mysqli_connect($host, $db_user, $db_password, $db_name);
@@ -24,7 +26,7 @@
   $result = mysqli_query($conn, $sql);
   $id_cargo = $conn->insert_id;
 
-  $id_dispatcher="1";
+  $id_dispatcher=$_SESSION['id_uzytkownika'];
 
   //insert zamowienia
   $mysqldate = date("Y-m-d");
