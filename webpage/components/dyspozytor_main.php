@@ -57,7 +57,7 @@
 	else
 	{
 		if ($rezultat = @$polaczenie->query(
-		sprintf("SELECT *, status FROM orders",
+		sprintf("SELECT * FROM orders WHERE id_dispatcher='%s' ",
 		mysqli_real_escape_string($polaczenie,$_SESSION['id_uzytkownika']))))
 		{
 			$ile_zlecen=$rezultat->num_rows;
