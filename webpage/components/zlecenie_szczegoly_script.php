@@ -148,7 +148,23 @@
    echo "</div>";
    echo "<div>";
      echo "<label>Przydzielona ekipa:</label>";
-     echo "<input type='text' name='id_crew' id='id_crew' value='".$order['id_crew']."'/>";
+     echo '<select name="id_crew" id="id_crew">';
+     $sql5 = "SELECT id_crew FROM crew";
+     $result5 = mysqli_query($conn, $sql5);
+     while($crew = mysqli_fetch_array($result5)){
+       echo '<option value="';
+       echo $crew['id_crew'];
+       if ($crew['id_crew'] == $order['id_crew']) {
+        echo '" selected>';
+       } else {
+        echo '">';
+       }
+       echo $crew['id_crew'];
+       echo '</option>';
+     }
+     mysqli_close($conn);
+     echo "</select>";
+     //echo "<input type='text' name='id_crew' id='id_crew' value='".$order['id_crew']."'/>";
    echo "</div>";
   echo "<h4> Status</h4>";
    echo "<div>";
