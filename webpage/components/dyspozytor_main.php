@@ -40,9 +40,11 @@
             <tr class="w3-light-grey">
               <th>Numer kierowcy</th>
               <th>Numer zlecenia</th>
-              <th>Status</th>
-              <th>Szczegóły</th>
-              <th>Usuń</th>
+              <th>Data zlecenia</th>
+              <th>Wycena</th>
+              <th class="center_content">Status</th>
+              <th class="center_content">Szczegóły</th>
+              <th class="center_content">Usuń</th>
             </tr>
           </thead>
           <?php
@@ -64,14 +66,20 @@
 			
 			while($row=mysqli_fetch_array($rezultat))
 			{
-          echo"<tr>";
-          echo"<td>";
+          echo "<tr>";
+          echo "<td>";
           echo $row['id_crew'];
-          echo"</td>";
-					echo"<td>";
+          echo "</td>";
+					echo "<td>";
 					echo $row['id_order'];
-					echo"</td>";
-					echo"<td>";
+          echo "</td>";
+          echo "<td>";
+          echo $row['order_date'];
+          echo "</td>";
+          echo "<td>";
+          echo $row['valuation'];
+          echo " zł</td>";
+					echo '<td class="center_content">';
 					if($row['status']=="przyjete")
 					{
 						echo'<i class="fa fa-truck w3-text-orange"></i>';
@@ -84,13 +92,13 @@
 					{
 						echo'<i class="fa fa-truck w3-text-red"></i>';
 					}
-          echo"</td>";
-          echo'<td><a class="zlecenie_szczegoly" data-order-id="';
+          echo "</td>";
+          echo '<td class="center_content"><a class="zlecenie_szczegoly" data-order-id="';
           echo $row['id_order'];
           echo '" href="javascript:void(0)">';
           echo '<i class="fa fa-search">';
           echo "</i></a></td>";
-          echo'<td><a class="delete_zlecenie" data-order-id="';
+          echo '<td class="center_content"><a class="delete_zlecenie" data-order-id="';
           echo $row['id_order'];
           echo '" href="javascript:void(0)">';
           echo '<i class="fa fa-close">';
@@ -104,7 +112,8 @@
       <p>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#noweZlecenieModal">Dodaj zlecenie</a>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#legendaModal">Legenda statusów</a>
-      <a href="/components/dyspozytor_archiwum.php" class="w3-button w3-blue">Archiwum</a>
+      <!--Archiwum button is disabled because archive is not ready -->
+      <a class="disabled" href="/components/dyspozytor_archiwum.php" class="w3-button w3-blue">Archiwum</a>
       </p>
       <!-- content -->
       </div>

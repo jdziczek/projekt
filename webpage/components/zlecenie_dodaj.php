@@ -88,9 +88,9 @@
             <div>
               <label>Typ auta:</label>
               <select name="car_type" id="car_type" >
-                <option value="Bus">Bus</option>
-                <option value="Container">Container</option>
-                <option value="Truck">Truck</option>
+                <option value="bus">bus</option>
+                <option value="kontener">kontener</option>
+                <option value="truck">truck</option>
               </select>
             </div>
             <div>
