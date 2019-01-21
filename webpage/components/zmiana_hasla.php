@@ -23,7 +23,7 @@ else
 	{
 		if($haslo_n1==$haslo_n2)
 		{	
-			if(strlen($haslo_n1)>=6 && strlen($haslo_n1)<=20)
+			if(strlen($haslo_n1)>=8 && strlen($haslo_n1)<=20)
 			{
 				$haslo_st=htmlentities($haslo_st, ENT_QUOTES,"UTF-8"); 
 				$haslo_n1=htmlentities($haslo_n1, ENT_QUOTES,"UTF-8");
