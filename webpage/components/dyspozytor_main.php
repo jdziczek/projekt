@@ -34,7 +34,6 @@
       <div class="w3-container">
       <!-- content -->
       <h2>Zarządzanie zleceniami</h2>
-      <h3>Kalendarz zleceń</h3>
         <table class="w3-table-all w3-hoverable">
           <thead>
             <tr class="w3-light-grey">
@@ -112,10 +111,6 @@
       <p>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#noweZlecenieModal">Dodaj zlecenie</a>
       <a class="w3-button w3-blue" data-toggle="modal" data-target="#legendaModal">Legenda statusów</a>
-      <!--Archiwum button is disabled because archive is not ready -->
-      <a class="disabled" href="/components/dyspozytor_archiwum.php" class="w3-button w3-blue">Archiwum</a>
-      </p>
-      <!-- content -->
       </div>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
     </div>
