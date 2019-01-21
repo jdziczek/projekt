@@ -21,7 +21,7 @@
 	
 		if ($rezultat = @$polaczenie->query(
 		sprintf("CALL Zaloguj('%s')",
-		//sprintf("SELECT * FROM logging WHERE BINARY login='%s'",
+		//sprintf("SELECT * FROM users WHERE BINARY login='%s'",
 		mysqli_real_escape_string($polaczenie,$arg_login))))
 		{
 			$ilu_userow=$rezultat->num_rows;
@@ -45,11 +45,19 @@
 						{
 							$_SESSION['zalogowany_D']=true;						//zalogowany dyspozytor
 							$_SESSION['zalogowany_K']=false;
+							$_SESSION['zalogowany_A']=false;
 						}
 						else if($_SESSION['typ_konta']=="kierowca")
 						{
 							$_SESSION['zalogowany_D']=false;
 							$_SESSION['zalogowany_K']=true; //zalogowany kierowca
+							$_SESSION['zalogowany_A']=false;
+						}
+						else if($_SESSION['typ_konta']=="administrator")
+						{
+							$_SESSION['zalogowany_D']=false;						//zalogowany dyspozytor
+							$_SESSION['zalogowany_K']=false;
+							$_SESSION['zalogowany_A']=true;
 						}
 						else
 						{
@@ -67,6 +75,10 @@
 					{
 						header('Location: kierowca_main.php'); //przekierowanie
 					}
+					else if($_SESSION['zalogowany_A'])
+					{
+						header('Location: admin_main.php'); //przekierowanie
+					}
 				}
 				else
 				{
@@ -79,6 +91,11 @@
 				$_SESSION['blad']='<span style="color:red">Nieprawidlowy login </span>';
 				header('Location: logowanie.php');
 			}	
+		}
+		else
+		{
+			$_SESSION['blad']='<span style="color:red">Problem połączenia z bazą. Proszę spróbować później.</span>';
+			header('Location: logowanie.php');
 		}
 		$polaczenie->close();
 	}		

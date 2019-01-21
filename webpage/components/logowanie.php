@@ -18,6 +18,11 @@ do pliku konfiguracyjnego .htaccess-- KOMENTARZ PÓŹNIEJ DO USUNIĘCIA-->
 			header('Location: kierowca_main.php');
 			exit(); //wyjscie z pliku
 		}
+		else if($_SESSION['zalogowany_A']==true)
+		{
+			header('Location: admin_main.php');
+			exit(); //wyjscie z pliku
+		}
 		
 		
 	}

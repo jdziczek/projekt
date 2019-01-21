@@ -31,6 +31,10 @@
   {
 	  require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/sidebar_kierowca.php';
   } 
+   else if ($_SESSION['zalogowany_A']==true)
+  {
+	  require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/sidebar_admin.php';
+  }
    ?>
 	  
 		<div class="w3-main">
@@ -41,7 +45,7 @@
 		<?php
 			if(!isset($_SESSION['zmiana_OK']))
 			{	
-				echo'<h6>Nowe hasło powinno powinno zawierać od 6 do 20 znaków.</h6>';
+				echo'<h6>Nowe hasło powinno zawierać od 6 do 20 znaków.</h6>';
 				echo'<form action="zmiana_hasla.php" method="post" autocomplete="off">';
 					echo'Stare hasło: <br /><input type="password" required name="stare_haslo" readonly onfocus="this.removeAttribute(\'readonly\')"/></br>';
 					echo'Nowe hasło: <br /><input type="password" required name="nowe_haslo1" readonly onfocus="this.removeAttribute(\'readonly\')" /></br>';
