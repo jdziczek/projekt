@@ -152,11 +152,28 @@ ADD FOREIGN KEY (id_cargo) REFERENCES arch_cargo(id_cargo);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (1, 'Kwiatowa', 14, 25, '81-005', 'Gdynia', 2);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (2, 'Chryzantemowa', 26, 13, '81-002', 'Gdynia', 3);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (3, 'Fiolkowa', 132, 4, '80-326', 'Gdansk', 0);
-INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (4, 'Tulipanowa', 45, 47, '80-364', 'Gdansk', 1);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (4, 'Tulipanowa', 45, 42, '80-364', 'Gdansk', 1);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (5, 'Bratkowa', 178, 8, '01-001', 'Warszawa', 1);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (6, 'Stokrotkowa', 1, 12, '01-006', 'Warszawa', 4);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (7, 'Hiacyntowa', 44, 4, '01-478', 'Warszawa', 2);
 INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (8, 'Koperkowa', 6, 8, '01-452', 'Warszawa', 3);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (9, 'Demptowska', 45, 13, '81-364', 'Gdansk', 0);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (10, 'Hallera', 4, 22, '81-164', 'Gdansk', 1);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (11, 'Miękka', 3, 17, '81-364', 'Gdansk', 2);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (12, 'Twarda', 4, 14, '82-424', 'Gdansk', 1);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (13, 'Hiacyntowa', 6, 15, '80-364', 'Gdansk', 2);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (14, 'Stokrotkowa', 45, 12, '80-44', 'Gdansk', 3);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (15, 'Bławatna', 23, 12, '80-064', 'Gdansk', 0);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (16, 'Rumska', 54, 16, '80-364', 'Gdansk', 2);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (17, 'Pawia', 72, 12, '80-464', 'Gdansk', 1);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (18, 'Sowia', 53, 11, '80-264', 'Gdansk', 3);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (19, 'Chabrowa', 9, 2, '80-664', 'Gdansk', 1);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (20, 'Pusta', 22, 6, '80-334', 'Gdansk', 2);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (21, 'Kartuska', 12, 2, '80-362', 'Gdansk', 3);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (22, 'Helska', 23, 5, '80-369', 'Gdansk', 0);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (23, 'Rdestowa', 62, 4, '80-360', 'Gdansk', 2);
+INSERT INTO address (id_address, street, b_number, a_number, zip_code, city, floor) VALUES (24, 'Sępia', 21, 2, '80-064', 'Gdansk', 0);
+
 
 INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('bus', 1.5, 3.5, 1.8, 1.8);
 INSERT INTO car (car_type, car_capacity, cargo_length, cargo_width, cargo_height) VALUES ('kontener', 2, 4.5, 1.8, 2.3);
@@ -166,6 +183,14 @@ INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width,
 INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (2, 'szafa i komoda', 80, 1, 2, 1.8);
 INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (3, '8 palet skrzynek z owocami ', 2000, 4, 2, 1.5);
 INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (4, 'paczka', 20, 3, 2, 0.2);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (5, 'paczka', 15, 2, 2, 0.25);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (6, 'paczka', 30, 3, 3, 0.3);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (7, '2 paczki', 20, 3, 4, 0.5);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (8, '2 paczki', 20, 5, 4, 0.4);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (9, '12 palet skrzynek z owocami', 3000, 4, 3, 1.5);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (10, '16 palet skrzynek z owocami', 4000, 4, 2, 3);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (11, '22 palet skrzynek z owocami', 5000, 4, 4, 3);
+INSERT INTO cargo (id_cargo, cargo_dsc, cargo_weight, cargo_length, cargo_width, cargo_height) VALUES (12, '26 palet skrzynek z owocami', 6000, 6, 4, 3);
 
 INSERT INTO users (id_user, login, password) VALUES
 (1, 'jkowalski', '$2y$10$uJJWXeePFbWxKGhLYR56Wu9qPfTfm4GTvUYVL5oFFYOlftkV1E49O'),
@@ -186,13 +211,18 @@ INSERT INTO employees (id_employee, e_name, e_surname, position) VALUES (7, 'Ada
 
 
 INSERT INTO crew (id_crew, car) VALUES (1, 'bus');
-INSERT INTO crew (id_crew, car) VALUES (2, 'bus');
-INSERT INTO crew (id_crew, car) VALUES (5, 'kontener');
+INSERT INTO crew (id_crew, car) VALUES (2, 'kontener');
+INSERT INTO crew (id_crew, car) VALUES (5, 'tir');
 
-INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (1, '2018-12-14', '9:00', 'bus', 2, 1, 2, '785965236', 10, 150, 1, 1, 'zrealizowane', 3, 'brak możliwości wjazdu na posesję', NULL);
-INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (2, '2018-12-16', '8:00', 'bus', 1, 3, 4, '589652321', 5, 80, 2, 1, 'przyjete', 4, NULL, NULL);
-INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (3, '2018-12-22', '12:00', 'kontener', 3, 5, 6, '652325521', 50, 3000, 3, 5, 'anulowane', 3, NULL, NULL);
-INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (4, '2018-12-10', '14:00', 'bus', 2, 7, 8, '603254789', 3, 100, 4, 2, 'przyjete', 4, 'remont drogi, podjechać od Piaskowej', NULL);
-
-
-
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (1, '2018-12-10', '9:00', 'bus', 2, 1, 2, '785965236', 10, 150, 1, 1, 'zrealizowane', 3, 'brak możliwości wjazdu na posesję', 'wjazd już był możliwy');
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (2, '2018-12-14', '8:00', 'bus', 1, 3, 4, '589652321', 5, 80, 2, 1, 'zrealizowane', 4, NULL, NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (3, '2018-12-16', '12:00', 'kontener', 3, 5, 6, '652325521', 50, 3000, 3, 2, 'anulowane', 3, NULL, NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (4, '2018-12-22', '14:00', 'bus', 2, 7, 8, '603254789', 3, 100, 4, 1, 'zrealizowane', 4, 'remont drogi, podjechać od Piaskowej', NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (5, '2019-01-04', '9:00', 'bus', 1, 9, 10, '782365236', 6, 180, 5, 1, 'zrealizowane', 3, 'brak możliwości wjazdu', NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (6, '2018-01-05', '8:00', 'bus', 1, 11, 12, '548965231', 9, 250, 6, 1, 'przyjete', 4, NULL, NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (7, '2018-01-07', '12:00', 'bus', 1, 13, 14, '565233421', 15, 320, 7, 1, 'anulowane', 3, NULL, NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (8, '2018-01-09', '14:00', 'bus', 1, 15, 16, '572354789', 30, 580, 8, 1, 'przyjete', 4, 'groźny pies', NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (9, '2018-01-13', '9:00', 'kontener', 3, 17, 18, '786552366', 10, 1000, 9, 2, 'przyjete', 3, 'remont drogi', NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (10, '2018-01-15', '8:00', 'kontener', 4, 19, 20, '452362321', 25, 1800, 10, 2, 'anulowane', 4, NULL, NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (11, '2018-01-16', '12:00', 'tir', 5, 21, 22, '652363821', 50, 3400, 11, 5, 'przyjete', 3, NULL, NULL);
+INSERT INTO orders (id_order, order_date, order_time, car_type, people, f_address, s_address, phone, distance, valuation, id_cargo, id_crew, status, id_dispatcher, comment_disp, comment_driver) VALUES (12, '2018-01-17', '14:00', 'tir', 6, 23, 24, '605425789', 45, 3700, 12, 5, 'przyjete', 3, 'groźny pies', NULL);
