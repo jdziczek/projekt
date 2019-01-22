@@ -87,7 +87,7 @@ while($row = mysqli_fetch_array($result1))
     echo'<i class="fa fa-truck w3-text-red"></i>';
   }
   echo "</td>";
-  echo '<td class="center_content"><a class="zlecenie_arch_szczegoly" data-order-id="';
+  echo '<td class="center_content"><a class="zlecenie_szczegoly_arch" data-order-id="';
   echo $row['id_order'];
   echo '" href="javascript:void(0)">';
   echo '<i class="fa fa-search">';
@@ -102,7 +102,7 @@ while($row = mysqli_fetch_array($result1))
         </div>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
     </div>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_szczegoly_arch.php'; ?>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/components/zlecenie_legenda.php'; ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
