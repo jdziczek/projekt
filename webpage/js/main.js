@@ -65,3 +65,21 @@ $(document).ready(function(){
     })
   });
 });
+
+// Wyswietlanie zlecenia archiwalnego
+$(document).ready(function(){
+  $('.zlecenie_arch_szczegoly').click(function(e){
+    e.preventDefault();
+    var orderid = $(this).attr('data-order-id');
+    $.ajax({
+      type: 'GET',
+      url: '/components/zlecenie_arch_szczegoly_script.php',
+      dataType: "html",
+      data: 'orderid='+orderid,
+      success: function(response){                    
+        $('#zlecenie_szczegoly').html(response);
+        $('#zlecenieModal').modal('show');
+    }
+    })
+  });
+});

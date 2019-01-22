@@ -87,7 +87,7 @@ while($row = mysqli_fetch_array($result1))
     echo'<i class="fa fa-truck w3-text-red"></i>';
   }
   echo "</td>";
-  echo '<td class="center_content"><a class="zlecenie_szczegoly" data-order-id="';
+  echo '<td class="center_content"><a class="zlecenie_arch_szczegoly" data-order-id="';
   echo $row['id_order'];
   echo '" href="javascript:void(0)">';
   echo '<i class="fa fa-search">';
