@@ -115,8 +115,15 @@
               <?php
               require_once "connect.php";
               $conn = mysqli_connect($host, $db_user, $db_password, $db_name);
-              $sql = "SELECT id_crew FROM crew";
-              $result = mysqli_query($conn, $sql);
+              try
+              {
+                $sql = "CALL id_crews";
+                $result = mysqli_query($conn, $sql);
+              }
+              catch (Exception $e)
+              {
+                echo 'Wystąpił problem z pobraniem dostępnych ekip'.$e->getMessage();
+              }
               while($row = mysqli_fetch_array($result)){
                 echo '<option value="';
                 echo $row['id_crew'];

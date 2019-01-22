@@ -153,6 +153,14 @@ DELIMITER ;
 
 USE jdb;
 DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `id_crews`()
+BEGIN
+SELECT id_crew FROM crew;
+END$$
+DELIMITER ;
+
+USE jdb;
+DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `pokaz_kierowcow`()
 BEGIN
 SELECT * FROM kierowcy;
