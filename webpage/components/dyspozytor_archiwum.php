@@ -51,6 +51,7 @@ echo "
     <th>Ładunek</th>
     <th>Ekipa</th>
     <th>Status</th>
+    <th>Szczegóły</th>
   </tr>
 </thead>";
 
