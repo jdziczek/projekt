@@ -35,9 +35,15 @@
 <?php
   require_once "connect.php";
 $conn = mysqli_connect($host, $db_user, $db_password, $db_name);
-$call = "CALL pokaz_kierowcow";
-$result1 = mysqli_query($conn, $call);
-
+try
+{
+  $call = "CALL pokaz_kierowcow";
+  $result1 = mysqli_query($conn, $call);
+}
+catch (Exception $e)
+{
+  echo 'Wystąpił problem z pokazywaniem kierowców. Spróbuj ponownie później lub skontaktuj się z administratorem'.$e->getMessage();
+}
 echo "
 <h2>Kierowcy</h2>
 <table class='w3-table-all w3-hoverable'>
