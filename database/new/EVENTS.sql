@@ -1,10 +1,7 @@
 SET GLOBAL event_scheduler = ON; 
 
 USE jdb;
-DELIMITER $$
-CREATE EVENT `ArchiwizacjaZlecen` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01 00:00:00' ON COMPLETION PRESERVE ENABLE DO
-
-    BEGIN
+CREATE DEFINER=`root`@`localhost` EVENT `ArchiwizacjaZlecen` ON SCHEDULE EVERY 1 DAY STARTS '2019-01-01 00:00:00' ON COMPLETION PRESERVE ENABLE DO BEGIN
         INSERT INTO arch_orders (
         id_order,
         order_date,
@@ -42,23 +39,18 @@ CREATE EVENT `ArchiwizacjaZlecen` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01 0
         FROM
             orders 
         WHERE
-            orders.order_date > DATE_SUB(NOW(),INTERVAL 1 YEAR) ; 
+            orders.order_date < DATE_SUB(CURRENT_DATE(),INTERVAL 1 YEAR) ; 
 
         DELETE
         FROM
             orders
         WHERE
-            order_date > DATE_SUB(NOW(),INTERVAL 1 YEAR) ;
-        END$$
-
-    DELIMITER ;
+            order_date < DATE_SUB(CURRENT_DATE(),INTERVAL 1 YEAR) ;
+        END
 
 USE jdb;
-DELIMITER $$
-CREATE EVENT `ArchiwizacjaLadunkow` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01 01:00:00' ON COMPLETION PRESERVE ENABLE DO
-
-    BEGIN
-    INSERT INTO arch_cargo (
+CREATE DEFINER=`root`@`localhost` EVENT `ArchiwizacjaLadunkow` ON SCHEDULE EVERY 1 DAY STARTS '2019-01-01 00:10:00' ON COMPLETION PRESERVE ENABLE DO BEGIN
+        INSERT INTO arch_cargo (
 	id_cargo,
 	cargo_dsc,
 	cargo_weight,
@@ -71,7 +63,7 @@ CREATE EVENT `ArchiwizacjaLadunkow` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01
 	cargo.cargo_weight,
 	cargo.cargo_length,
 	cargo.cargo_width, 
-	cargo.cargo_heigh
+	cargo.cargo_height
         FROM
             cargo 
         WHERE
@@ -82,17 +74,12 @@ CREATE EVENT `ArchiwizacjaLadunkow` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01
             cargo
         WHERE
             id_cargo IN (SELECT arch_orders.id_cargo FROM arch_orders); 
-        END$$
-
-    DELIMITER ;
+        END
 
 
 USE jdb;
-DELIMITER $$
-CREATE EVENT `ArchiwizacjaAdresow` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01 01:00:00' ON COMPLETION PRESERVE ENABLE DO
-
-    BEGIN
-    INSERT INTO arch_address (
+CREATE DEFINER=`root`@`localhost` EVENT `ArchiwizacjaAdresow` ON SCHEDULE EVERY 1 DAY STARTS '2019-01-01 00:20:00' ON COMPLETION PRESERVE ENABLE DO BEGIN
+        INSERT INTO arch_address (
 	id_address,
 	street,
 	b_number,
@@ -100,7 +87,7 @@ CREATE EVENT `ArchiwizacjaAdresow` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01 
 	zip_code,
 	city,
 	floor)
-    SELECT 
+        SELECT 
 	address.id_address,
 	address.street,
 	address.b_number,
@@ -111,13 +98,13 @@ CREATE EVENT `ArchiwizacjaAdresow` ON SCHEDULE EVERY 1 MONTH STARTS '2019-01-01 
         FROM
             address 
         WHERE
-            address.id_address IN (SELECT arch_orders.id_address FROM arch_orders);
+            address.id_address IN (SELECT arch_orders.f_address FROM arch_orders) OR address.id_address IN (SELECT arch_orders.s_address FROM arch_orders);
 
         DELETE
         FROM
             address
         WHERE
-            id_address IN (SELECT arch_orders.id_address FROM arch_orders); 
-        END$$
-
-    DELIMITER ;
+            id_address IN (SELECT arch_orders.f_address FROM arch_orders)
+            OR id_address IN (SELECT arch_orders.s_address FROM arch_orders)
+            ; 
+        END
