@@ -133,7 +133,7 @@
         <h4> Komentarz dyspozytora</h4>
         <textarea rows="2" cols="70" name="comment_dispatcher" form="zlecenieForm" ></textarea>
         <h4> Komentarz kierowcy</h4>
-        <textarea rows="2" cols="70" name="comment_driver" form="zlecenieForm" ></textarea>
+        <textarea rows="2" cols="70" name="comment_driver" form="zlecenieForm" disabled></textarea>
         <div>
           <input class="w3-button w3-blue" type="submit" value="Dodaj" form="zlecenieForm" />
         </div>
