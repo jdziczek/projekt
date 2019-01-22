@@ -150,3 +150,19 @@ BEGIN
 SELECT MAX(id_cargo) FROM cargo;
 END$$
 DELIMITER ;
+
+USE jdb;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pokaz_kierowcow`()
+BEGIN
+SELECT * FROM kierowcy;
+END$$
+DELIMITER ;
+
+USE jdb;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pokaz_archiwum`()
+BEGIN
+SELECT * FROM arch_orders;
+END$$
+DELIMITER ;

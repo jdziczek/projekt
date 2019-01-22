@@ -9,6 +9,6 @@ FROM crew a, employees b
 WHERE a.id_crew=b.id_employee;
 
 CREATE VIEW archiwum AS
-SELECT *
+SELECT id_order, order_date, car_type, f_address, s_address, id_cargo, id_crew, status
 FROM arch_orders;
 
