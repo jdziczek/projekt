@@ -174,3 +174,22 @@ BEGIN
 SELECT * FROM arch_orders;
 END$$
 DELIMITER ;
+
+USE jdb;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `WybierzZlecenia`(`orderid` INT(100))
+BEGIN
+SELECT * FROM orders WHERE id_order = @orderid;
+END$$
+DELIMITER ;
+
+USE jdb;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UpdateOrdersByDriver`(
+`orderid` INT(100),
+`comment_driver` VARCHAR(150))
+BEGIN
+UPDATE orders SET comment_driver = @comment_driver WHERE id_order = @orderid;
+
+END$$
+DELIMITER ;

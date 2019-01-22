@@ -7,6 +7,7 @@
   if ($_SESSION['zalogowany_K']) {
     //update zamowienia
     $sql = "UPDATE orders SET comment_driver='".$_POST['comment_driver']."' WHERE id_order='".$_POST['order_id']."'";
+    //$sql = "CALL UpdateOrdersByDriver('".$_POST['order_id']."', '".$_POST['comment_driver']."')";
     $result = mysqli_query($conn, $sql);
   }
 
