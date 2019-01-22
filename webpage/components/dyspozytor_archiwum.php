@@ -32,43 +32,69 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php'; ?>
       <div class="w3-container">
       <!-- content -->
-      <h2>Archiwum</h2>
-        <table class="w3-table-all w3-hoverable">
-          <thead>
-            <tr class="w3-light-grey">
-              <th>Numer kierowcy</th>
-              <th>Numer zlecenia</th>
-              <th>Data zlecenia</th>
-              <th>Wycena</th>
-              <th class="center_content">Status</th>
-              <th class="center_content">Szczegóły</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>2018-12-10</td>
-            <td>3000 zł</td>
-            <td class="center_content"><i class="fa fa-truck w3-text-red"></i></a></td>
-            <td class="center_content"><i class="fa fa-search"></i></a></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>2018-12-11</td>
-            <td>3000 zł</td>
-            <td class="center_content"><i class="fa fa-truck w3-text-red"></i></a></td>
-            <td class="center_content"><i class="fa fa-search"></i></a></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>3</td>
-            <td>2018-12-12</td>
-            <td>3000 zł</td>
-            <td class="center_content"><i class="fa fa-truck w3-text-red"></i></a></td>
-            <td class="center_content"><i class="fa fa-search"></i></a></td>
-          </tr>
-        </table>
+      <?php
+  require_once "connect.php";
+$conn = mysqli_connect($host, $db_user, $db_password, $db_name);
+$call = "CALL pokaz_archiwum";
+$result1 = mysqli_query($conn, $call);
+
+echo "
+<h2>Archiwum Zleceń</h2>
+<table class='w3-table-all w3-hoverable'>
+<thead>
+  <tr class='w3-light-grey'>
+    <th>Numer zlecenia</th>
+    <th>Data</th>
+    <th>Typ auta</th>
+    <th>Adres startowy</th>
+    <th>Adres końcowy</th>
+    <th>Ładunek</th>
+    <th>Ekipa</th>
+    <th>Status</th>
+  </tr>
+</thead>";
+
+while($row = mysqli_fetch_array($result1))
+
+  {
+
+ echo "<tr>";
+
+  echo "<td>" . $row['id_order'] . "</td>";
+
+  echo "<td>" . $row['order_date'] . "</td>";
+
+  echo "<td>" . $row['car_type'] . "</td>";
+
+  echo "<td>" . $row['f_address'] . "</td>";
+
+  echo "<td>" . $row['s_address'] . "</td>";
+
+  echo "<td>" . $row['id_cargo'] . "</td>";
+  echo "<td>" . $row['id_crew'] . "</td>";
+  echo '<td class="center_content">';
+  if($row['status']=="przyjete")
+  {
+    echo'<i class="fa fa-truck w3-text-orange"></i>';
+  }
+  else if($row['status']=="zrealizowane")
+  {
+    echo'<i class="fa fa-truck w3-text-green"></i>';
+  }
+  else if($row['status']=="anulowane")
+  {
+    echo'<i class="fa fa-truck w3-text-red"></i>';
+  }
+  echo "</td>";
+  echo '<td class="center_content"><a class="zlecenie_szczegoly" data-order-id="';
+  echo $row['id_order'];
+  echo '" href="javascript:void(0)">';
+  echo '<i class="fa fa-search">';
+  echo "</i></a></td>";
+  echo "</tr>";
+  }
+  echo "</table>";
+  ?>
       <!-- content -->
         <p>
         <a class="w3-button w3-blue" data-toggle="modal" data-target="#legendaModal">Legenda statusów</a>

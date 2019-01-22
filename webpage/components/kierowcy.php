@@ -32,35 +32,44 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/header.php'; ?>
       <div class="w3-container">
       <!-- content -->
-      <h2>Spis kierowców</h2>
-        <table class="w3-table-all w3-hoverable">
-          <thead>
-            <tr class="w3-light-grey">
-              <th>Numer kierowcy</th>
-              <th>Imię</th>
-              <th>Nazwisko</th>
-              <th>Typ auta</th>
-            </tr>
-          </thead>
-          <tr>
-            <td>1</td>
-            <td>Adam</td>
-            <td>Kreft</td>
-            <td>bus</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Anna</td>
-            <td>Kreft</td>
-            <td>bus</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Kazik</td>
-            <td>Kreft</td>
-            <td>bus</td>
-          </tr>
-        </table>
+<?php
+  require_once "connect.php";
+$conn = mysqli_connect($host, $db_user, $db_password, $db_name);
+$call = "CALL pokaz_kierowcow";
+$result1 = mysqli_query($conn, $call);
+
+echo "
+<h2>Kierowcy</h2>
+<table class='w3-table-all w3-hoverable'>
+<thead>
+  <tr class='w3-light-grey'>
+    <th>Numer kierowcy</th>
+    <th>Typ Auta</th>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+  </tr>
+</thead>";
+
+while($row = mysqli_fetch_array($result1))
+
+  {
+
+ echo "<tr>";
+
+  echo "<td>" . $row['id_crew'] . "</td>";
+
+  echo "<td>" . $row['car'] . "</td>";
+
+  echo "<td>" . $row['e_name'] . "</td>";
+
+  echo "<td>" . $row['e_surname'] . "</td>";
+
+  echo "</tr>";
+
+  }
+
+  echo "</table>";
+  ?>
       <!-- content -->
         </div>
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/templates/footer.php'; ?>
